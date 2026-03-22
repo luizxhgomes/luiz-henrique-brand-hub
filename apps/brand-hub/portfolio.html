@@ -454,7 +454,7 @@
       <p>De otimizar campanhas a otimizar sistemas. A evolução do ROAS conta a história.</p>
     </div>
 
-    <div class="roas-progression scroll-bottom" id="roas-chart">
+    <div class="roas-progression" id="roas-chart">
       <div class="roas-bar-item">
         <div class="roas-bar-val">3,3</div>
         <div class="roas-bar" data-height="20" style="height:8px; background: rgba(37,99,235,0.4);"></div>
@@ -935,10 +935,9 @@ Sua trajetória de 10 posições em 5 anos, de SDR a Arquiteto de Operações, �
     roasObserver.observe(roasChart);
   }
 
-  // --- FIX: observe ALL elements with scroll/blur classes ---
-  // animations.js only observes .card/.stat-card inside grids.
-  // Portfolio uses .case-card, .quote-block, .bio-block, .cta-section, .hero elements
-  // that have scroll classes but are never observed. This catch-all fixes it.
+  // --- FIX: observe ALL elements with scroll/blur animation classes ---
+  // animations.js only handles .card/.stat-card inside grids.
+  // This catch-all ensures every animated element gets observed.
   var fixObserver = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
@@ -948,27 +947,22 @@ Sua trajetória de 10 posições em 5 anos, de SDR a Arquiteto de Operações, �
         fixObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.05, rootMargin: '0px 0px -10% 0px' });
+  }, { threshold: 0.05, rootMargin: '0px 0px -5% 0px' });
 
-  requestAnimationFrame(function() {
-    requestAnimationFrame(function() {
-      var unobserved = document.querySelectorAll(
-        '.case-card.scroll-bottom, .quote-block.scroll-left, .quote-block.scroll-right, ' +
-        '.bio-block.scroll-bottom, .cta-section.scroll-bottom, ' +
-        '.hero .scroll-bottom, .hero-badge.scroll-bottom, ' +
-        '.pitch-block, .section-divider'
-      );
-      unobserved.forEach(function(el) {
-        // Only observe if it has an animation class and is not yet active
-        if ((el.classList.contains('scroll-bottom') || el.classList.contains('scroll-left') ||
-             el.classList.contains('scroll-right') || el.classList.contains('blur-in')) &&
-            !el.classList.contains('ativo')) {
-          void el.offsetHeight;
-          fixObserver.observe(el);
-        }
-      });
+  function observeAll() {
+    var allAnimated = document.querySelectorAll(
+      '.scroll-bottom, .scroll-left, .scroll-right, .blur-in'
+    );
+    allAnimated.forEach(function(el) {
+      if (!el.classList.contains('ativo')) {
+        void el.offsetHeight;
+        fixObserver.observe(el);
+      }
     });
-  });
+  }
+
+  // Run after animations.js has had time to set up
+  setTimeout(observeAll, 200);
 })();
 </script>
 
