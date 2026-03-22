@@ -7,89 +7,102 @@
   'use strict';
 
   // --- INTERSECTION OBSERVER (Scroll Animations) ---
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
+  var observer = new IntersectionObserver(
+    function(entries) {
+      entries.forEach(function(entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add('ativo');
+          // Small delay so the browser paints the initial state first
+          requestAnimationFrame(function() {
+            entry.target.classList.add('ativo');
+          });
           observer.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.1, rootMargin: '0px 0px -15% 0px' }
+    { threshold: 0.05, rootMargin: '0px 0px -10% 0px' }
   );
 
+  function applyAnimation(el, type, delay) {
+    if (!el) return;
+    el.classList.add(type);
+    if (delay) el.style.transitionDelay = delay + 'ms';
+    // Force browser to register the initial state before observing
+    void el.offsetHeight;
+    observer.observe(el);
+  }
+
   function initScrollAnimations() {
-    // Animate page header
-    const header = document.querySelector('.page-header');
+    // --- PAGE HEADER: animate down from top ---
+    var header = document.querySelector('.page-header');
     if (header) {
-      header.classList.add('scroll-top');
-      observer.observe(header);
+      applyAnimation(header, 'scroll-bottom', 100);
     }
 
-    // Animate section dividers
-    document.querySelectorAll('.section-divider').forEach(el => {
-      el.classList.add('scroll-bottom');
-      observer.observe(el);
+    // --- SECTION DIVIDERS ---
+    var dividers = document.querySelectorAll('.section-divider');
+    dividers.forEach(function(el) {
+      applyAnimation(el, 'scroll-bottom', 0);
     });
 
-    // Animate cards with stagger
-    document.querySelectorAll('.grid-2, .grid-3, .grid-4').forEach(grid => {
-      grid.classList.add('stagger');
-      grid.querySelectorAll('.card, .stat-card, .story-block').forEach(card => {
-        card.classList.add('scroll-bottom');
-        observer.observe(card);
+    // --- GRIDS: stagger children ---
+    var grids = document.querySelectorAll('.grid-2, .grid-3, .grid-4');
+    grids.forEach(function(grid) {
+      var children = grid.querySelectorAll('.card, .stat-card, .story-block');
+      children.forEach(function(child, i) {
+        applyAnimation(child, 'scroll-bottom', i * 120);
       });
     });
 
-    // Animate standalone cards
-    document.querySelectorAll('.content > .card, .tab-content > .card').forEach(el => {
+    // --- STANDALONE CARDS (not inside grids) ---
+    var standaloneCards = document.querySelectorAll('.content > .card, .tab-content.active > .card');
+    standaloneCards.forEach(function(el) {
       if (!el.closest('.grid-2, .grid-3, .grid-4')) {
-        el.classList.add('scroll-bottom');
-        observer.observe(el);
+        applyAnimation(el, 'scroll-bottom', 0);
       }
     });
 
-    // Animate timeline items
-    document.querySelectorAll('.timeline-item').forEach((item, i) => {
-      item.classList.add('scroll-left');
-      item.style.transitionDelay = `${i * 120}ms`;
-      observer.observe(item);
+    // --- TIMELINE ITEMS: slide from left ---
+    var timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach(function(item, i) {
+      applyAnimation(item, 'scroll-left', i * 150);
     });
 
-    // Animate code blocks
-    document.querySelectorAll('.code-block').forEach(el => {
-      if (!el.closest('.tab-content:not(.active)')) {
-        el.classList.add('blur-in');
-        observer.observe(el);
-      }
+    // --- CODE BLOCKS: blur in ---
+    var codeBlocks = document.querySelectorAll('.content > .code-block, .tab-content.active .code-block');
+    codeBlocks.forEach(function(el) {
+      applyAnimation(el, 'blur-in', 0);
     });
 
-    // Animate voice meters
-    document.querySelectorAll('.voice-meter').forEach((meter, i) => {
-      meter.classList.add('scroll-right');
-      meter.style.transitionDelay = `${i * 100}ms`;
-      observer.observe(meter);
+    // --- VOICE METERS: slide from right ---
+    var meters = document.querySelectorAll('.voice-meter');
+    meters.forEach(function(meter, i) {
+      applyAnimation(meter, 'scroll-right', i * 100);
     });
 
-    // Animate tables
-    document.querySelectorAll('.cal-table').forEach(el => {
-      el.classList.add('scroll-bottom');
-      observer.observe(el);
+    // --- TABLES ---
+    var tables = document.querySelectorAll('.cal-table');
+    tables.forEach(function(el) {
+      applyAnimation(el, 'scroll-bottom', 0);
     });
 
-    // Animate tab containers
-    document.querySelectorAll('.tabs').forEach(el => {
-      el.classList.add('scroll-bottom');
-      observer.observe(el);
+    // --- TABS BAR ---
+    var tabBars = document.querySelectorAll('.tabs');
+    tabBars.forEach(function(el) {
+      applyAnimation(el, 'blur-in', 0);
     });
 
-    // Animate badge groups
-    document.querySelectorAll('[style*="flex-wrap"]').forEach(el => {
+    // --- BADGE GROUPS ---
+    var badgeGroups = document.querySelectorAll('[style*="flex-wrap"]');
+    badgeGroups.forEach(function(el) {
       if (el.querySelector('.badge')) {
-        el.classList.add('blur-in');
-        observer.observe(el);
+        applyAnimation(el, 'blur-in', 200);
       }
+    });
+
+    // --- LEGEND ROWS (calendario) ---
+    var legends = document.querySelectorAll('.content > .grid-4:first-child');
+    legends.forEach(function(el) {
+      applyAnimation(el, 'blur-in', 0);
     });
   }
 
@@ -98,7 +111,7 @@
     if (window.innerWidth <= 1024) return;
     if (typeof Lenis === 'undefined') return;
 
-    const lenis = new Lenis({
+    var lenis = new Lenis({
       duration: 1.7,
       easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
       smoothWheel: true,
@@ -112,7 +125,7 @@
     }
     requestAnimationFrame(raf);
 
-    // Handle anchor links
+    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
       anchor.addEventListener('click', function(e) {
         var target = document.querySelector(this.getAttribute('href'));
@@ -124,46 +137,39 @@
     });
   }
 
-  // --- VOICE METER ANIMATION ---
+  // --- VOICE METER FILL ANIMATION ---
   function initVoiceMeters() {
-    var meters = document.querySelectorAll('.voice-meter-fill');
+    var fills = document.querySelectorAll('.voice-meter-fill');
     var meterObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
-          var target = entry.target;
-          var width = target.style.width;
-          target.style.width = '0%';
+          var el = entry.target;
+          var targetWidth = el.style.width;
+          el.style.width = '0%';
+          el.style.transition = 'width 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
+          // Force reflow then animate
+          void el.offsetHeight;
           requestAnimationFrame(function() {
-            requestAnimationFrame(function() {
-              target.style.width = width;
-            });
+            el.style.width = targetWidth;
           });
-          meterObserver.unobserve(target);
+          meterObserver.unobserve(el);
         }
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.3 });
 
-    meters.forEach(function(meter) { meterObserver.observe(meter); });
-  }
-
-  // --- SIDEBAR ACTIVE STATE ---
-  function initSidebar() {
-    var path = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.sidebar-nav a').forEach(function(link) {
-      link.classList.remove('active');
-      var href = link.getAttribute('href');
-      if (href === path || (path === '' && href === 'index.html')) {
-        link.classList.add('active');
-      }
-    });
+    fills.forEach(function(fill) { meterObserver.observe(fill); });
   }
 
   // --- INIT ---
   function init() {
-    initSidebar();
-    initScrollAnimations();
-    initVoiceMeters();
-    initLenis();
+    // Wait a tick so the browser has painted the initial layout
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        initScrollAnimations();
+        initVoiceMeters();
+        initLenis();
+      });
+    });
   }
 
   if (document.readyState === 'loading') {
