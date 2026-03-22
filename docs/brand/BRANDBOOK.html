@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brandbook — Luiz Henrique @luizhenriquexpro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* === PALETA PRIMARIA === */
+  --midnight: #0A0E1A;
+  --navy-deep: #0F172A;
+  --navy: #1E293B;
+  --slate: #334155;
+  --slate-light: #64748B;
+
+  /* === CORES DE MARCA === */
+  --brand-blue: #2563EB;
+  --brand-blue-light: #3B82F6;
+  --brand-cyan: #06B6D4;
+  --brand-amber: #F59E0B;
+  --brand-amber-light: #FBBF24;
+  --brand-green: #10B981;
+  --brand-red: #EF4444;
+
+  /* === NEUTROS === */
+  --white: #F8FAFC;
+  --gray-100: #F1F5F9;
+  --gray-200: #E2E8F0;
+  --gray-400: #94A3B8;
+
+  /* === GRADIENTES === */
+  --gradient-hero: linear-gradient(135deg, #0A0E1A 0%, #1E293B 50%, #0F172A 100%);
+  --gradient-accent: linear-gradient(135deg, #2563EB 0%, #06B6D4 100%);
+  --gradient-warm: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);
+  --gradient-card: linear-gradient(145deg, rgba(30,41,59,0.8) 0%, rgba(15,23,42,0.95) 100%);
+
+  /* === TIPOGRAFIA === */
+  --font-display: 'Montserrat', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
+  --font-mono: 'Montserrat', sans-serif;
+
+  /* === ESPACAMENTO === */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+
+  /* === SOMBRAS === */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.5);
+  --shadow-glow-blue: 0 0 30px rgba(37,99,235,0.3);
+  --shadow-glow-amber: 0 0 30px rgba(245,158,11,0.3);
+
+  /* === BORDAS === */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+}
+
+/* === SCROLL ANIMATIONS === */
+.scroll-left { opacity: 0; transform: translateX(-80px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+.scroll-right { opacity: 0; transform: translateX(80px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+.scroll-top { opacity: 0; transform: translateY(-60px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+.scroll-bottom { opacity: 0; transform: translateY(60px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+.blur-in { opacity: 0; filter: blur(10px); transition: opacity 0.8s ease-out, filter 0.8s ease-out; }
+.scroll-left.ativo, .scroll-right.ativo, .scroll-top.ativo, .scroll-bottom.ativo { opacity: 1; transform: translate(0,0); }
+.blur-in.ativo { opacity: 1; filter: blur(0); }
+.stagger > *:nth-child(1) { transition-delay: 0ms; }
+.stagger > *:nth-child(2) { transition-delay: 120ms; }
+.stagger > *:nth-child(3) { transition-delay: 240ms; }
+.stagger > *:nth-child(4) { transition-delay: 360ms; }
+.stagger > *:nth-child(5) { transition-delay: 480ms; }
+.stagger > *:nth-child(6) { transition-delay: 600ms; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--midnight);
+  color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* === SCROLLBAR === */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--navy-deep); }
+::-webkit-scrollbar-thumb { background: var(--brand-blue); border-radius: 3px; }
+
+/* === NAV === */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(10,14,26,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(37,99,235,0.15);
+  padding: 12px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav .logo {
+  font-family: var(--font-display);
+  font-size: 24px;
+  letter-spacing: 2px;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+nav .nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+nav .nav-links a {
+  color: var(--gray-400);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+nav .nav-links a:hover { color: var(--brand-cyan); }
+
+/* === SECTIONS === */
+section {
+  padding: var(--space-4xl) var(--space-2xl);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-header {
+  margin-bottom: var(--space-3xl);
+}
+.section-number {
+  font-family: var(--font-display);
+  font-size: 80px;
+  line-height: 1;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.4;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: 48px;
+  letter-spacing: 3px;
+  margin-top: -20px;
+}
+.section-subtitle {
+  color: var(--gray-400);
+  font-size: 16px;
+  margin-top: var(--space-sm);
+  max-width: 600px;
+}
+.divider {
+  width: 60px;
+  height: 3px;
+  background: var(--gradient-accent);
+  margin: var(--space-lg) 0;
+  border-radius: 2px;
+}
+
+/* === HERO === */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: var(--gradient-hero);
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(37,99,235,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(6,182,212,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(245,158,11,0.04) 0%, transparent 50%);
+}
+.hero-content { position: relative; z-index: 1; }
+.hero-badge {
+  display: inline-block;
+  padding: 6px 20px;
+  border: 1px solid rgba(37,99,235,0.4);
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--brand-cyan);
+  margin-bottom: var(--space-xl);
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(60px, 10vw, 120px);
+  letter-spacing: 4px;
+  line-height: 0.95;
+  margin-bottom: var(--space-lg);
+}
+.hero h1 span {
+  display: block;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-tagline {
+  font-size: 20px;
+  color: var(--gray-400);
+  max-width: 600px;
+  margin: 0 auto var(--space-2xl);
+  font-weight: 300;
+}
+.hero-meta {
+  display: flex;
+  gap: var(--space-2xl);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.hero-meta-item {
+  text-align: center;
+}
+.hero-meta-value {
+  font-family: var(--font-display);
+  font-size: 36px;
+  letter-spacing: 2px;
+  color: var(--brand-amber);
+}
+.hero-meta-label {
+  font-size: 11px;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* === GRID LAYOUTS === */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-xl); }
+.grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: var(--space-xl); }
+
+/* === CARDS === */
+.card {
+  background: var(--gradient-card);
+  border: 1px solid rgba(37,99,235,0.1);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  transition: all 0.3s ease;
+}
+.card:hover {
+  border-color: rgba(37,99,235,0.3);
+  box-shadow: var(--shadow-glow-blue);
+  transform: translateY(-2px);
+}
+.card-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--brand-cyan);
+  margin-bottom: var(--space-md);
+}
+.card h3 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+.card p {
+  color: var(--gray-400);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* === COLOR SWATCHES === */
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-lg);
+}
+.swatch {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.swatch-color {
+  height: 120px;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-md);
+}
+.swatch-info {
+  padding: var(--space-md);
+  background: var(--navy);
+}
+.swatch-name {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.swatch-hex {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--gray-400);
+}
+.swatch-role {
+  font-size: 11px;
+  color: var(--slate-light);
+  margin-top: 4px;
+}
+
+/* === TYPOGRAPHY SHOWCASE === */
+.type-sample {
+  padding: var(--space-xl) 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.type-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--brand-cyan);
+  margin-bottom: var(--space-sm);
+}
+.type-display {
+  font-family: var(--font-display);
+  font-size: 72px;
+  letter-spacing: 4px;
+  line-height: 1;
+  margin-bottom: var(--space-sm);
+}
+.type-heading {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: var(--space-sm);
+}
+.type-body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--gray-400);
+  max-width: 600px;
+  line-height: 1.8;
+}
+.type-mono {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--brand-green);
+  background: rgba(16,185,129,0.1);
+  padding: var(--space-md);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(16,185,129,0.2);
+}
+.type-meta {
+  font-size: 12px;
+  color: var(--slate-light);
+  margin-top: var(--space-xs);
+}
+
+/* === COMPONENT TEMPLATES === */
+.template-preview {
+  background: var(--navy-deep);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(37,99,235,0.1);
+  overflow: hidden;
+}
+.template-header {
+  padding: var(--space-md) var(--space-lg);
+  background: rgba(37,99,235,0.05);
+  border-bottom: 1px solid rgba(37,99,235,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.template-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--brand-amber);
+}
+.template-dim {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--slate-light);
+}
+.template-body {
+  padding: var(--space-xl);
+}
+
+/* Story template */
+.story-mock {
+  width: 220px;
+  height: 390px;
+  background: var(--navy);
+  border-radius: 20px;
+  border: 2px solid rgba(255,255,255,0.1);
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+}
+.story-mock-top {
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+}
+.story-mock-bottom {
+  height: 40%;
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* Carousel template */
+.carousel-mock {
+  display: flex;
+  gap: var(--space-md);
+  overflow-x: auto;
+  padding: var(--space-md) 0;
+  scroll-snap-type: x mandatory;
+}
+.carousel-slide {
+  min-width: 280px;
+  height: 280px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-xl);
+  scroll-snap-align: start;
+  text-align: center;
+}
+
+/* LinkedIn template */
+.linkedin-mock {
+  background: var(--white);
+  color: var(--navy-deep);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  max-width: 500px;
+}
+.linkedin-mock .li-header {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+  margin-bottom: var(--space-md);
+}
+.linkedin-mock .li-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--gradient-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: white;
+}
+.linkedin-mock .li-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--navy-deep);
+}
+.linkedin-mock .li-title {
+  font-size: 12px;
+  color: var(--slate-light);
+}
+.linkedin-mock .li-body {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--navy);
+}
+.linkedin-mock .li-body .hook {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--navy-deep);
+}
+
+/* === ICON SYSTEM === */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--space-lg);
+}
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  background: var(--navy);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.icon-item svg {
+  width: 32px;
+  height: 32px;
+  stroke: var(--brand-cyan);
+  fill: none;
+  stroke-width: 1.5;
+}
+.icon-item span {
+  font-size: 11px;
+  color: var(--gray-400);
+  text-align: center;
+}
+
+/* === GRADIENT BARS === */
+.gradient-bar {
+  height: 48px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-md);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: white;
+  margin-bottom: var(--space-sm);
+}
+
+/* === SERIES BADGES === */
+.series-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* === SPACING DEMO === */
+.spacing-demo {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+.spacing-block {
+  background: rgba(37,99,235,0.2);
+  border: 1px solid rgba(37,99,235,0.4);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--brand-cyan);
+}
+
+/* === MOTION === */
+.motion-demo {
+  display: flex;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
+}
+.motion-box {
+  width: 100px;
+  height: 100px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+}
+.motion-fade { background: var(--brand-blue); transition: opacity 0.2s ease; }
+.motion-fade:hover { opacity: 0.6; }
+.motion-slide { background: var(--brand-cyan); transition: transform 0.3s ease; }
+.motion-slide:hover { transform: translateY(-8px); }
+.motion-scale { background: var(--brand-amber); color: var(--navy-deep); transition: transform 0.2s ease; }
+.motion-scale:hover { transform: scale(1.05); }
+.motion-glow { background: var(--navy); border: 1px solid var(--brand-blue); transition: box-shadow 0.3s ease; }
+.motion-glow:hover { box-shadow: var(--shadow-glow-blue); }
+
+/* === DO / DON'T === */
+.do-dont {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+}
+.do-box, .dont-box {
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+}
+.do-box {
+  background: rgba(16,185,129,0.05);
+  border: 1px solid rgba(16,185,129,0.3);
+}
+.dont-box {
+  background: rgba(239,68,68,0.05);
+  border: 1px solid rgba(239,68,68,0.3);
+}
+.do-box h4 { color: var(--brand-green); margin-bottom: var(--space-md); }
+.dont-box h4 { color: var(--brand-red); margin-bottom: var(--space-md); }
+.do-box li, .dont-box li {
+  color: var(--gray-400);
+  font-size: 14px;
+  margin-bottom: var(--space-sm);
+  list-style: none;
+  padding-left: 20px;
+  position: relative;
+}
+.do-box li::before { content: '+'; position: absolute; left: 0; color: var(--brand-green); font-weight: 700; }
+.dont-box li::before { content: '-'; position: absolute; left: 0; color: var(--brand-red); font-weight: 700; }
+
+/* === FOOTER === */
+footer {
+  text-align: center;
+  padding: var(--space-3xl) var(--space-2xl);
+  border-top: 1px solid rgba(37,99,235,0.1);
+}
+footer p {
+  color: var(--slate-light);
+  font-size: 13px;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .do-dont { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 48px; }
+  .section-number { font-size: 48px; }
+  .section-title { font-size: 32px; }
+  nav .nav-links { display: none; }
+  section { padding: var(--space-2xl) var(--space-md); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">LH BRANDBOOK</div>
+  <ul class="nav-links">
+    <li><a href="#identidade">Identidade</a></li>
+    <li><a href="#cores">Cores</a></li>
+    <li><a href="#tipografia">Tipografia</a></li>
+    <li><a href="#componentes">Componentes</a></li>
+    <li><a href="#series">Series</a></li>
+    <li><a href="#motion">Motion</a></li>
+    <li><a href="#regras">Regras</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Brandbook v4.0 — Marco 2026</div>
+    <h1>
+      LUIZ<br>
+      <span>HENRIQUE</span>
+    </h1>
+    <p class="hero-tagline">Arquiteto de Operacoes Inteligentes | AIOX + RevOps + TOC<br>Construo o sistema nervoso central das empresas com IA</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="hero-meta-value">R$ 6Mi+</div>
+        <div class="hero-meta-label">Trafego Gerenciado</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-value">7-8 DIG</div>
+        <div class="hero-meta-label">Lancamentos</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-value">7 AREAS</div>
+        <div class="hero-meta-label">Integradas com IA</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-value">MARE</div>
+        <div class="hero-meta-label">Complexo de Origem</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 01. IDENTIDADE -->
+<section id="identidade">
+  <div class="section-header">
+    <div class="section-number">01</div>
+    <h2 class="section-title">IDENTIDADE DE MARCA</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">O arquetipo, os pilares e a essencia visual que definem @luizhenriquexpro</p>
+  </div>
+
+  <div class="grid-2" style="margin-bottom: var(--space-3xl);">
+    <div class="card">
+      <div class="card-label">Arquetipo</div>
+      <h3>O Arquiteto de Operacoes Inteligentes</h3>
+      <p>Combina a garra da origem (Complexo da Mare) com capacidade tecnica comprovada de construir sistemas que fazem empresas inteiras operarem com IA. Nao e guru. Nao e influencer. E construtor.</p>
+    </div>
+    <div class="card">
+      <div class="card-label">Tagline</div>
+      <h3>"Construo o sistema nervoso central das empresas com IA"</h3>
+      <p>7 areas, 1 sistema, 0 achismo. Marketing + Comunicacao + Comercial + CS/CX + Operacao + Financeiro + RH — tudo integrado, orientado a dados, IA-First.</p>
+    </div>
+  </div>
+
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-label">Pilar Visual 1</div>
+      <h3>Tecnologia</h3>
+      <p>Dark mode, monoespaco, graficos de dados, terminais, fluxos. Visual que comunica dominio tecnico sem ser inacessivel.</p>
+    </div>
+    <div class="card">
+      <div class="card-label">Pilar Visual 2</div>
+      <h3>Humanidade</h3>
+      <p>Fotos reais, selfies autenticass, origem visivel. A tecnologia serve pessoas. O visual nunca pode ser frio demais.</p>
+    </div>
+    <div class="card">
+      <div class="card-label">Pilar Visual 3</div>
+      <h3>Construcao</h3>
+      <p>Diagramas de sistema, conexoes entre areas, setas bidirecionais. O visual deve comunicar que algo esta SENDO construido — nao so teorizado.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02. CORES -->
+<section id="cores">
+  <div class="section-header">
+    <div class="section-number">02</div>
+    <h2 class="section-title">PALETA DE CORES</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">Cores que comunicam autoridade tecnica, confianca e energia de transformacao</p>
+  </div>
+
+  <h3 style="margin-bottom: var(--space-lg); font-size: 14px; text-transform: uppercase; letter-spacing: 2px; color: var(--brand-cyan);">Cores Primarias</h3>
+  <div class="color-grid" style="margin-bottom: var(--space-3xl);">
+    <div class="swatch">
+      <div class="swatch-color" style="background: #0A0E1A;"><span style="color: var(--gray-400); font-size: 11px;">Fundos principais</span></div>
+      <div class="swatch-info"><div class="swatch-name">Midnight</div><div class="swatch-hex">#0A0E1A</div><div class="swatch-role">Background principal, hero sections</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #0F172A;"><span style="color: var(--gray-400); font-size: 11px;">Cards e superficies</span></div>
+      <div class="swatch-info"><div class="swatch-name">Navy Deep</div><div class="swatch-hex">#0F172A</div><div class="swatch-role">Cards, superficies elevadas</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #1E293B;"><span style="color: var(--gray-400); font-size: 11px;">Elementos secundarios</span></div>
+      <div class="swatch-info"><div class="swatch-name">Navy</div><div class="swatch-hex">#1E293B</div><div class="swatch-role">Bordas, separadores, hover states</div></div>
+    </div>
+  </div>
+
+  <h3 style="margin-bottom: var(--space-lg); font-size: 14px; text-transform: uppercase; letter-spacing: 2px; color: var(--brand-cyan);">Cores de Marca</h3>
+  <div class="color-grid" style="margin-bottom: var(--space-3xl);">
+    <div class="swatch">
+      <div class="swatch-color" style="background: #2563EB;"></div>
+      <div class="swatch-info"><div class="swatch-name">Brand Blue</div><div class="swatch-hex">#2563EB</div><div class="swatch-role">CTA principal, links, destaques</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #06B6D4;"></div>
+      <div class="swatch-info"><div class="swatch-name">Brand Cyan</div><div class="swatch-hex">#06B6D4</div><div class="swatch-role">Labels, tags, dados tecnicos</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #F59E0B;"></div>
+      <div class="swatch-info"><div class="swatch-name">Brand Amber</div><div class="swatch-hex">#F59E0B</div><div class="swatch-role">Metricas, numeros, highlights</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #10B981;"></div>
+      <div class="swatch-info"><div class="swatch-name">Brand Green</div><div class="swatch-hex">#10B981</div><div class="swatch-role">Sucesso, resultados positivos, solucoes</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #EF4444;"></div>
+      <div class="swatch-info"><div class="swatch-name">Brand Red</div><div class="swatch-hex">#EF4444</div><div class="swatch-role">Gargalos, problemas, alertas</div></div>
+    </div>
+  </div>
+
+  <h3 style="margin-bottom: var(--space-lg); font-size: 14px; text-transform: uppercase; letter-spacing: 2px; color: var(--brand-cyan);">Gradientes</h3>
+  <div class="gradient-bar" style="background: linear-gradient(135deg, #2563EB, #06B6D4);">Gradient Accent — Titulos, hero, CTAs</div>
+  <div class="gradient-bar" style="background: linear-gradient(135deg, #F59E0B, #EF4444);">Gradient Warm — Metricas, urgencia, gargalos</div>
+  <div class="gradient-bar" style="background: linear-gradient(135deg, #10B981, #06B6D4);">Gradient Success — Resultados, solucoes</div>
+  <div class="gradient-bar" style="background: linear-gradient(145deg, rgba(30,41,59,0.8), rgba(15,23,42,0.95));">Gradient Card — Superficies de card</div>
+
+  <h3 style="margin: var(--space-2xl) 0 var(--space-lg); font-size: 14px; text-transform: uppercase; letter-spacing: 2px; color: var(--brand-cyan);">Cores Semanticas (Series de Conteudo)</h3>
+  <div class="color-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background: linear-gradient(135deg, #EF4444, #F59E0B); display: flex; align-items: center; justify-content: center;"><span style="color: white; font-weight: 700; font-size: 13px;">GARGALO DA SEMANA</span></div>
+      <div class="swatch-info"><div class="swatch-name">Vermelho → Amber</div><div class="swatch-hex">#EF4444 → #F59E0B</div><div class="swatch-role">Problema → Solucao</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: linear-gradient(135deg, #2563EB, #06B6D4); display: flex; align-items: center; justify-content: center;"><span style="color: white; font-weight: 700; font-size: 13px;">DECODIFICANDO</span></div>
+      <div class="swatch-info"><div class="swatch-name">Blue → Cyan</div><div class="swatch-hex">#2563EB → #06B6D4</div><div class="swatch-role">Educacao tecnica</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: linear-gradient(135deg, #7C3AED, #2563EB); display: flex; align-items: center; justify-content: center;"><span style="color: white; font-weight: 700; font-size: 13px;">RADIOGRAFIA</span></div>
+      <div class="swatch-info"><div class="swatch-name">Violet → Blue</div><div class="swatch-hex">#7C3AED → #2563EB</div><div class="swatch-role">Diagnostico operacional</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: linear-gradient(135deg, #0F172A, #1E293B); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.1);"><span style="color: var(--gray-400); font-weight: 700; font-size: 13px;">CARTA ABERTA</span></div>
+      <div class="swatch-info"><div class="swatch-name">Navy Deep</div><div class="swatch-hex">#0F172A</div><div class="swatch-role">Tom intimista, pessoal</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03. TIPOGRAFIA -->
+<section id="tipografia">
+  <div class="section-header">
+    <div class="section-number">03</div>
+    <h2 class="section-title">TIPOGRAFIA</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">Sistema tipografico unificado — Montserrat em todos os pesos para impacto, legibilidade e tecnicidade</p>
+  </div>
+
+  <div class="type-sample">
+    <div class="type-label">Display — Montserrat 900 (Black)</div>
+    <div class="type-display" style="font-weight: 900; text-transform: uppercase;">ARQUITETO DE OPERACOES</div>
+    <div class="type-meta">Uso: Titulos hero, numeros grandes, capas de carrossel, frases de impacto. Sempre MAIUSCULAS. Weight 900. Tracking +2px minimo.</div>
+  </div>
+
+  <div class="type-sample">
+    <div class="type-label">Heading — Montserrat 700-800 | Body — Montserrat 400</div>
+    <div class="type-heading">7 areas, 1 sistema, 0 achismo</div>
+    <div class="type-body">Na V4 Bilinski & Co, construo um nucleo operacional inteligente que interconecta Marketing, Comunicacao, Comercial, CS/CX, Operacao, Financeiro e RH. Tudo integrado. Orientado a dados. IA-First. Usando Teoria das Restricoes para encontrar gargalos e agentes de IA para resolve-los.</div>
+    <div class="type-meta">Uso: Subtitulos (700-800), paragrafos (400), labels (600). Line-height: 1.5 heading, 1.7 body.</div>
+  </div>
+
+  <div class="type-sample">
+    <div class="type-label">Data — Montserrat 500 (monospaced style)</div>
+    <div class="type-mono">RESULTADO = (PESSOAS x PROCESSOS x DADOS) ^ IA<br>// De 3h/dia → 4min | Churn -23% | ROI 6x</div>
+    <div class="type-meta">Uso: Dados, metricas, formulas, KPIs. Fundo escuro com borda sutil. Weight 500. Letter-spacing: 0.5px.</div>
+  </div>
+
+  <div style="margin-top: var(--space-2xl);">
+    <h3 style="font-size: 14px; text-transform: uppercase; letter-spacing: 2px; color: var(--brand-cyan); margin-bottom: var(--space-lg);">Escala Tipografica</h3>
+    <div class="card" style="overflow-x: auto;">
+      <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+        <thead>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <th style="text-align: left; padding: 12px; color: var(--brand-cyan); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">Nivel</th>
+            <th style="text-align: left; padding: 12px; color: var(--brand-cyan); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">Fonte</th>
+            <th style="text-align: left; padding: 12px; color: var(--brand-cyan); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">Tamanho</th>
+            <th style="text-align: left; padding: 12px; color: var(--brand-cyan); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">Peso</th>
+            <th style="text-align: left; padding: 12px; color: var(--brand-cyan); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">Uso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 12px; font-weight: 600;">Display XL</td><td style="padding: 12px; font-family: var(--font-mono); color: var(--gray-400);">Montserrat</td><td style="padding: 12px;">72-120px</td><td style="padding: 12px;">400</td><td style="padding: 12px; color: var(--gray-400);">Hero, capa de carrossel</td></tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 12px; font-weight: 600;">Display</td><td style="padding: 12px; font-family: var(--font-mono); color: var(--gray-400);">Montserrat</td><td style="padding: 12px;">48-64px</td><td style="padding: 12px;">400</td><td style="padding: 12px; color: var(--gray-400);">Titulos de secao, numeros</td></tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 12px; font-weight: 600;">H1</td><td style="padding: 12px; font-family: var(--font-mono); color: var(--gray-400);">Montserrat</td><td style="padding: 12px;">32-40px</td><td style="padding: 12px;">800</td><td style="padding: 12px; color: var(--gray-400);">Titulos de post LinkedIn</td></tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 12px; font-weight: 600;">H2</td><td style="padding: 12px; font-family: var(--font-mono); color: var(--gray-400);">Montserrat</td><td style="padding: 12px;">24-28px</td><td style="padding: 12px;">700</td><td style="padding: 12px; color: var(--gray-400);">Subtitulos de slide</td></tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 12px; font-weight: 600;">H3</td><td style="padding: 12px; font-family: var(--font-mono); color: var(--gray-400);">Montserrat</td><td style="padding: 12px;">18-20px</td><td style="padding: 12px;">600</td><td style="padding: 12px; color: var(--gray-400);">Labels, categorias</td></tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 12px; font-weight: 600;">Body</td><td style="padding: 12px; font-family: var(--font-mono); color: var(--gray-400);">Montserrat</td><td style="padding: 12px;">15-16px</td><td style="padding: 12px;">400</td><td style="padding: 12px; color: var(--gray-400);">Texto corrido</td></tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 12px; font-weight: 600;">Caption</td><td style="padding: 12px; font-family: var(--font-mono); color: var(--gray-400);">Montserrat</td><td style="padding: 12px;">12-13px</td><td style="padding: 12px;">500</td><td style="padding: 12px; color: var(--gray-400);">Legendas, meta info</td></tr>
+          <tr><td style="padding: 12px; font-weight: 600;">Code</td><td style="padding: 12px; font-family: var(--font-mono); color: var(--gray-400);">Montserrat</td><td style="padding: 12px;">13-14px</td><td style="padding: 12px;">400</td><td style="padding: 12px; color: var(--gray-400);">Dados, metricas, formulas</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 04. COMPONENTES -->
+<section id="componentes">
+  <div class="section-header">
+    <div class="section-number">04</div>
+    <h2 class="section-title">COMPONENTES VISUAIS</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">Templates para Instagram Stories, Carrosseis e LinkedIn</p>
+  </div>
+
+  <!-- Instagram Story Template -->
+  <h3 style="font-size: 14px; text-transform: uppercase; letter-spacing: 2px; color: var(--brand-cyan); margin-bottom: var(--space-lg);">Instagram Story Template</h3>
+  <div class="grid-3" style="margin-bottom: var(--space-3xl);">
+    <!-- Story: Gargalo -->
+    <div class="template-preview">
+      <div class="template-header">
+        <span class="template-tag">Gargalo da Semana</span>
+        <span class="template-dim">1080x1920</span>
+      </div>
+      <div class="template-body" style="display: flex; justify-content: center;">
+        <div class="story-mock" style="background: linear-gradient(180deg, #0A0E1A, #1E293B);">
+          <div class="story-mock-top" style="flex-direction: column; gap: 8px;">
+            <div style="font-size: 10px; color: var(--brand-red); font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Gargalo #12</div>
+            <div style="font-family: var(--font-display); font-size: 22px; letter-spacing: 1px; text-align: center; line-height: 1.1;">HANDOFF SEM CONTEXTO</div>
+            <div style="width: 30px; height: 2px; background: var(--brand-red); border-radius: 1px;"></div>
+            <div style="font-size: 9px; color: var(--gray-400); text-align: center; padding: 0 12px;">O comercial fecha a venda.<br>O CS recebe o cliente.<br>Mas ninguem transfere o contexto.</div>
+          </div>
+          <div class="story-mock-bottom">
+            <div style="font-family: var(--font-mono); font-size: 9px; color: var(--brand-amber); margin-bottom: 8px;">IMPACTO: 23% de churn evitavel</div>
+            <div style="font-size: 8px; color: var(--gray-400);">@luizhenriquexpro</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Story: Bastidores -->
+    <div class="template-preview">
+      <div class="template-header">
+        <span class="template-tag">Bastidores</span>
+        <span class="template-dim">1080x1920</span>
+      </div>
+      <div class="template-body" style="display: flex; justify-content: center;">
+        <div class="story-mock" style="background: linear-gradient(180deg, #0F172A, #0A0E1A);">
+          <div class="story-mock-top" style="flex-direction: column; gap: 8px;">
+            <div style="font-family: var(--font-mono); font-size: 9px; color: var(--brand-cyan);">08:47 — STARTING</div>
+            <div style="width: 90%; height: 80px; background: rgba(37,99,235,0.1); border: 1px solid rgba(37,99,235,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+              <span style="font-size: 9px; color: var(--gray-400);">[screenshot do dashboard]</span>
+            </div>
+            <div style="font-size: 10px; color: var(--white); text-align: center; font-weight: 600;">Mapeando gargalos<br>entre comercial e CS</div>
+          </div>
+          <div class="story-mock-bottom">
+            <div style="font-size: 9px; color: var(--gray-400);">RevOps TECH & IA | V4 Bilinski & Co</div>
+            <div style="font-size: 8px; color: var(--brand-cyan); margin-top: 4px;">@luizhenriquexpro</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Story: Licao -->
+    <div class="template-preview">
+      <div class="template-header">
+        <span class="template-tag">Licao do Dia</span>
+        <span class="template-dim">1080x1920</span>
+      </div>
+      <div class="template-body" style="display: flex; justify-content: center;">
+        <div class="story-mock" style="background: linear-gradient(180deg, #0A0E1A, #1E293B);">
+          <div class="story-mock-top" style="flex-direction: column; gap: 8px;">
+            <div style="font-size: 9px; color: var(--brand-amber); font-weight: 700; letter-spacing: 2px;">LICAO DE HOJE</div>
+            <div style="font-family: var(--font-display); font-size: 16px; letter-spacing: 1px; text-align: center; line-height: 1.2; padding: 0 8px;">IA SEM PROCESSO E AUTOMACAO DO CAOS</div>
+            <div style="width: 30px; height: 2px; background: var(--gradient-accent); border-radius: 1px;"></div>
+            <div style="font-size: 9px; color: var(--gray-400); text-align: center; padding: 0 12px; line-height: 1.5;">Antes de colocar IA em qualquer processo, garanta que o processo funciona. Caso contrario, voce so automatiza o erro.</div>
+          </div>
+          <div class="story-mock-bottom">
+            <div style="font-family: var(--font-mono); font-size: 8px; color: var(--brand-green);">Dados > achismos. Sempre.</div>
+            <div style="font-size: 8px; color: var(--gray-400); margin-top: 4px;">@luizhenriquexpro</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carousel Template -->
+  <h3 style="font-size: 14px; text-transform: uppercase; letter-spacing: 2px; color: var(--brand-cyan); margin-bottom: var(--space-lg);">Carrossel Instagram — "Decodificando"</h3>
+  <div class="template-preview" style="margin-bottom: var(--space-3xl);">
+    <div class="template-header">
+      <span class="template-tag">Decodificando: Teoria das Restricoes</span>
+      <span class="template-dim">1080x1080 — 7 slides</span>
+    </div>
+    <div class="template-body">
+      <div class="carousel-mock">
+        <div class="carousel-slide" style="background: linear-gradient(135deg, #2563EB, #06B6D4);">
+          <div style="font-size: 11px; color: rgba(255,255,255,0.7); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px;">Decodificando</div>
+          <div style="font-family: var(--font-display); font-size: 28px; letter-spacing: 2px; line-height: 1;">TEORIA DAS RESTRICOES</div>
+          <div style="width: 40px; height: 2px; background: white; margin: 12px auto; opacity: 0.5;"></div>
+          <div style="font-size: 11px; color: rgba(255,255,255,0.8);">@luizhenriquexpro</div>
+        </div>
+        <div class="carousel-slide" style="background: var(--navy-deep);">
+          <div style="font-size: 10px; color: var(--brand-cyan); letter-spacing: 2px; margin-bottom: 12px;">O QUE E</div>
+          <div style="font-size: 16px; font-weight: 700; line-height: 1.4;">Todo sistema tem UM gargalo que limita o resultado de TUDO.</div>
+          <div style="font-size: 10px; color: var(--gray-400); margin-top: 12px;">Eliyahu Goldratt, 1984</div>
+        </div>
+        <div class="carousel-slide" style="background: var(--navy-deep);">
+          <div style="font-size: 10px; color: var(--brand-cyan); letter-spacing: 2px; margin-bottom: 12px;">COMO FUNCIONA</div>
+          <div style="font-size: 12px; text-align: left; line-height: 2;">
+            <span style="color: var(--brand-amber);">1.</span> Identificar<br>
+            <span style="color: var(--brand-amber);">2.</span> Explorar<br>
+            <span style="color: var(--brand-amber);">3.</span> Subordinar<br>
+            <span style="color: var(--brand-amber);">4.</span> Elevar<br>
+            <span style="color: var(--brand-amber);">5.</span> Repetir
+          </div>
+        </div>
+        <div class="carousel-slide" style="background: var(--navy-deep);">
+          <div style="font-size: 10px; color: var(--brand-green); letter-spacing: 2px; margin-bottom: 12px;">+ IA</div>
+          <div style="font-size: 13px; font-weight: 600; line-height: 1.5;">Antes: semanas de analise.<br><br>Agora: agente de IA mostra o gargalo em tempo real.</div>
+        </div>
+        <div class="carousel-slide" style="background: linear-gradient(135deg, #2563EB, #06B6D4);">
+          <div style="font-size: 12px; font-weight: 700; margin-bottom: 16px;">Salva este post.<br>Comenta qual conceito quer que eu decodifique.</div>
+          <div style="font-size: 11px; color: rgba(255,255,255,0.7);">@luizhenriquexpro</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LinkedIn Template -->
+  <h3 style="font-size: 14px; text-transform: uppercase; letter-spacing: 2px; color: var(--brand-cyan); margin-bottom: var(--space-lg);">Post LinkedIn — Template Visual</h3>
+  <div class="template-preview" style="margin-bottom: var(--space-3xl);">
+    <div class="template-header">
+      <span class="template-tag">Post de Autoridade</span>
+      <span class="template-dim">Feed LinkedIn</span>
+    </div>
+    <div class="template-body" style="display: flex; justify-content: center;">
+      <div class="linkedin-mock">
+        <div class="li-header">
+          <div class="li-avatar">LH</div>
+          <div>
+            <div class="li-name">Luiz Henrique Martins da Silva</div>
+            <div class="li-title">Arquiteto de Operacoes Inteligentes | RevOps TECH & IA | V4 Bilinski & Co</div>
+          </div>
+        </div>
+        <div class="li-body">
+          <p class="hook">A maioria das empresas opera como um corpo sem sistema nervoso.</p>
+          <br>
+          <p style="font-size: 13px;">Marketing faz uma coisa.<br>Comercial faz outra.<br>CS apaga incendio.</p>
+          <br>
+          <p style="font-size: 13px;">Na V4 Bilinski & Co, estou construindo o oposto...</p>
+          <br>
+          <p style="font-size: 12px; color: var(--brand-blue);">#RevOps #IA #TeoriaDasRestricoes</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05. SERIES -->
+<section id="series">
+  <div class="section-header">
+    <div class="section-number">05</div>
+    <h2 class="section-title">SERIES DE CONTEUDO</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">Cada serie tem identidade visual propria dentro do sistema de marca</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: var(--space-md);">
+        <span class="series-badge" style="background: rgba(239,68,68,0.15); color: var(--brand-red);">Gargalo da Semana</span>
+      </div>
+      <p>Cor dominante: <span style="color: var(--brand-red);">Red #EF4444</span> → <span style="color: var(--brand-green);">Green #10B981</span><br>
+      Icone: Lupa + corrente quebrada<br>
+      Formato: Stories (4) + Post LinkedIn<br>
+      Frequencia: Semanal (segunda-feira)<br>
+      Hashtag: <span style="font-family: var(--font-mono); color: var(--brand-cyan);">#GargaloDaSemana</span></p>
+    </div>
+
+    <div class="card">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: var(--space-md);">
+        <span class="series-badge" style="background: rgba(37,99,235,0.15); color: var(--brand-blue-light);">Decodificando</span>
+      </div>
+      <p>Cor dominante: <span style="color: var(--brand-blue);">Blue #2563EB</span> → <span style="color: var(--brand-cyan);">Cyan #06B6D4</span><br>
+      Icone: Cadeado sendo aberto<br>
+      Formato: Carrossel 7 slides<br>
+      Frequencia: Quinzenal (quarta alternada)<br>
+      Hashtag: <span style="font-family: var(--font-mono); color: var(--brand-cyan);">#Decodificando</span></p>
+    </div>
+
+    <div class="card">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: var(--space-md);">
+        <span class="series-badge" style="background: rgba(124,58,237,0.15); color: #A78BFA;">Radiografia</span>
+      </div>
+      <p>Cor dominante: <span style="color: #A78BFA;">Violet #7C3AED</span> → <span style="color: var(--brand-blue);">Blue #2563EB</span><br>
+      Icone: Raio-X estilizado<br>
+      Formato: Carrossel 8 slides (LinkedIn PDF + IG)<br>
+      Frequencia: Mensal (1o video do mes)<br>
+      Hashtag: <span style="font-family: var(--font-mono); color: var(--brand-cyan);">#RadiografiaDeOperacao</span></p>
+    </div>
+
+    <div class="card">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: var(--space-md);">
+        <span class="series-badge" style="background: rgba(245,158,11,0.15); color: var(--brand-amber);">Antes vs Agora</span>
+      </div>
+      <p>Cor dominante: <span style="color: var(--brand-red);">Red (antes)</span> | <span style="color: var(--brand-green);">Green (agora)</span><br>
+      Icone: Split-screen com setas<br>
+      Formato: Reel 60s split-screen<br>
+      Frequencia: 1x/semana<br>
+      Hashtag: <span style="font-family: var(--font-mono); color: var(--brand-cyan);">#AntesVsAgora</span></p>
+    </div>
+
+    <div class="card">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: var(--space-md);">
+        <span class="series-badge" style="background: rgba(255,255,255,0.05); color: var(--gray-400); border: 1px solid rgba(255,255,255,0.1);">Carta Aberta</span>
+      </div>
+      <p>Cor dominante: <span style="color: var(--gray-400);">Navy minimalista</span><br>
+      Icone: Envelope aberto<br>
+      Formato: Post LinkedIn (texto longo)<br>
+      Frequencia: 2x/mes<br>
+      Hashtag: <span style="font-family: var(--font-mono); color: var(--brand-cyan);">#CartaAberta</span></p>
+    </div>
+
+    <div class="card">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: var(--space-md);">
+        <span class="series-badge" style="background: rgba(16,185,129,0.15); color: var(--brand-green);">Mito vs Realidade</span>
+      </div>
+      <p>Cor dominante: <span style="color: var(--brand-red);">Red (mito)</span> | <span style="color: var(--brand-green);">Green (realidade)</span><br>
+      Icone: X vermelho / Check verde<br>
+      Formato: Carrossel 6 slides<br>
+      Frequencia: 2x/mes<br>
+      Hashtag: <span style="font-family: var(--font-mono); color: var(--brand-cyan);">#MitoVsRealidade</span></p>
+    </div>
+
+    <div class="card">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: var(--space-md);">
+        <span class="series-badge" style="background: rgba(6,182,212,0.15); color: var(--brand-cyan);">Dashboard ao Vivo</span>
+      </div>
+      <p>Cor dominante: <span style="color: var(--brand-cyan);">Cyan #06B6D4</span> + <span style="color: var(--brand-green);">Green #10B981</span><br>
+      Icone: Monitor com graficos em tempo real<br>
+      Formato: Stories interativos (enquete + dados reais)<br>
+      Frequencia: 1x/semana<br>
+      Hashtag: <span style="font-family: var(--font-mono); color: var(--brand-cyan);">#DashboardAoVivo</span></p>
+    </div>
+
+    <div class="card">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: var(--space-md);">
+        <span class="series-badge" style="background: rgba(245,158,11,0.15); color: var(--brand-amber-light);">Fluxograma de Decisao</span>
+      </div>
+      <p>Cor dominante: <span style="color: var(--brand-amber);">Amber #F59E0B</span> + <span style="color: var(--brand-blue);">Blue #2563EB</span><br>
+      Icone: Arvore de decisao com nos<br>
+      Formato: Carrossel salvavel (utilidade alta)<br>
+      Frequencia: 2x/mes<br>
+      Hashtag: <span style="font-family: var(--font-mono); color: var(--brand-cyan);">#FluxogramaDeDecisao</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 06. MOTION -->
+<section id="motion">
+  <div class="section-header">
+    <div class="section-number">06</div>
+    <h2 class="section-title">MOTION & INTERACAO</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">Guias de animacao e transicao para conteudo digital</p>
+  </div>
+
+  <div style="margin-bottom: var(--space-3xl);">
+    <h3 style="font-size: 14px; text-transform: uppercase; letter-spacing: 2px; color: var(--brand-cyan); margin-bottom: var(--space-lg);">Efeitos de Interacao (hover para testar)</h3>
+    <div class="motion-demo">
+      <div class="motion-box motion-fade">Fade<br>200ms</div>
+      <div class="motion-box motion-slide">Slide Up<br>300ms</div>
+      <div class="motion-box motion-scale">Scale<br>200ms</div>
+      <div class="motion-box motion-glow">Glow<br>300ms</div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-label">Timing</div>
+      <h3>Duracoes Padrao</h3>
+      <p>
+        <strong>Micro-interacoes:</strong> 150-200ms (hover, click feedback)<br>
+        <strong>Transicoes:</strong> 250-300ms (slides de carrossel, aparicao)<br>
+        <strong>Animacoes complexas:</strong> 400-600ms (entrada de secao, morph)<br>
+        <strong>Easing:</strong> cubic-bezier(0.4, 0, 0.2, 1) — ease-out natural
+      </p>
+    </div>
+    <div class="card">
+      <div class="card-label">Para Reels e Stories</div>
+      <h3>Motion em Video</h3>
+      <p>
+        <strong>Texto entrada:</strong> Fade-up suave (300ms)<br>
+        <strong>Numeros/metricas:</strong> Count-up animado (800ms)<br>
+        <strong>Split-screen:</strong> Slide lateral sincronizado<br>
+        <strong>Transicoes entre cenas:</strong> Cut direto ou cross-fade rapido (200ms)<br>
+        <strong>NUNCA:</strong> zoom excessivo, rotacao, bouncing
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 07. ESPACAMENTO -->
+<section>
+  <div class="section-header">
+    <div class="section-number">07</div>
+    <h2 class="section-title">GRID & ESPACAMENTO</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">Sistema baseado em multiplos de 8px para consistencia visual</p>
+  </div>
+
+  <div class="card" style="margin-bottom: var(--space-2xl);">
+    <div class="card-label">Escala de Espacamento (base 8px)</div>
+    <div class="spacing-demo">
+      <div><div class="spacing-block" style="width: 16px; height: 16px;">4</div><div class="type-meta" style="text-align: center;">xs</div></div>
+      <div><div class="spacing-block" style="width: 24px; height: 24px;">8</div><div class="type-meta" style="text-align: center;">sm</div></div>
+      <div><div class="spacing-block" style="width: 40px; height: 40px;">16</div><div class="type-meta" style="text-align: center;">md</div></div>
+      <div><div class="spacing-block" style="width: 56px; height: 56px;">24</div><div class="type-meta" style="text-align: center;">lg</div></div>
+      <div><div class="spacing-block" style="width: 72px; height: 72px;">32</div><div class="type-meta" style="text-align: center;">xl</div></div>
+      <div><div class="spacing-block" style="width: 96px; height: 96px;">48</div><div class="type-meta" style="text-align: center;">2xl</div></div>
+      <div><div class="spacing-block" style="width: 120px; height: 120px;">64</div><div class="type-meta" style="text-align: center;">3xl</div></div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-label">Instagram</div>
+      <h3>Dimensoes</h3>
+      <p>
+        <strong>Feed (quadrado):</strong> 1080 x 1080px<br>
+        <strong>Feed (vertical):</strong> 1080 x 1350px<br>
+        <strong>Stories/Reels:</strong> 1080 x 1920px<br>
+        <strong>Safe zone stories:</strong> 80px top + 200px bottom<br>
+        <strong>Padding interno:</strong> min 48px lateral
+      </p>
+    </div>
+    <div class="card">
+      <div class="card-label">LinkedIn</div>
+      <h3>Dimensoes</h3>
+      <p>
+        <strong>Post imagem:</strong> 1200 x 627px<br>
+        <strong>Carrossel PDF:</strong> 1080 x 1080px por slide<br>
+        <strong>Banner perfil:</strong> 1584 x 396px<br>
+        <strong>Preview de texto:</strong> 2 primeiras linhas visiveis<br>
+        <strong>Padding interno:</strong> min 40px lateral
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 08. REGRAS -->
+<section id="regras">
+  <div class="section-header">
+    <div class="section-number">08</div>
+    <h2 class="section-title">REGRAS DE USO</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">O que fazer e o que nunca fazer com a identidade visual</p>
+  </div>
+
+  <div class="do-dont">
+    <div class="do-box">
+      <h4>FAZER</h4>
+      <ul>
+        <li>Usar dark mode como padrao (Midnight #0A0E1A)</li>
+        <li>Manter contraste minimo 4.5:1 em todo texto</li>
+        <li>Usar Montserrat 900 (Black) em MAIUSCULAS para titulos display</li>
+        <li>Aplicar gradiente accent em titulos hero e CTAs</li>
+        <li>Usar Montserrat 500 com letter-spacing para dados e metricas</li>
+        <li>Manter padding minimo de 48px nas laterais dos stories</li>
+        <li>Usar fotos reais (selfies, tela, setup) nos bastidores</li>
+        <li>Manter identidade visual consistente entre series</li>
+        <li>Usar iconografia Lucide (stroke 1.5px, cor cyan)</li>
+        <li>Respeitar safe zones dos stories (top 80px, bottom 200px)</li>
+      </ul>
+    </div>
+    <div class="dont-box">
+      <h4>NAO FAZER</h4>
+      <ul>
+        <li>Usar fundo branco como padrao (light mode so em LinkedIn mock)</li>
+        <li>Misturar mais de 3 cores de marca no mesmo slide</li>
+        <li>Usar peso 900 para texto corrido (reservar para titulos display)</li>
+        <li>Colocar emojis como icones principais</li>
+        <li>Usar fotos de banco de imagem genericas</li>
+        <li>Mudar paleta de cores entre posts da mesma serie</li>
+        <li>Usar sombras coloridas excessivas (glow sutil apenas)</li>
+        <li>Textos com mais de 40 palavras por slide de carrossel</li>
+        <li>Animacoes bouncing, zoom excessivo ou rotacao</li>
+        <li>Fontes decorativas ou script em qualquer contexto</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div style="font-family: var(--font-display); font-size: 32px; letter-spacing: 3px; margin-bottom: var(--space-md);">
+    <span style="background: var(--gradient-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">LUIZ HENRIQUE</span>
+  </div>
+  <p>Brandbook v4.0 — Arquiteto de Operacoes Inteligentes</p>
+  <p style="margin-top: 4px;">@luizhenriquexpro | V4 Bilinski & Co | Do Complexo da Mare</p>
+  <p style="margin-top: var(--space-md); font-family: var(--font-mono); font-size: 11px; color: var(--slate);">Gerado em Marco/2026 — Design System + UI/UX Pro Max</p>
+</footer>
+
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+<script>
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('ativo');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -15% 0px' });
+
+  document.querySelectorAll('.section-header').forEach(function(el) {
+    el.classList.add('scroll-bottom');
+    observer.observe(el);
+  });
+  document.querySelectorAll('section > div:not(.section-header)').forEach(function(el, i) {
+    el.classList.add(i % 2 === 0 ? 'scroll-bottom' : 'blur-in');
+    observer.observe(el);
+  });
+  document.querySelectorAll('footer').forEach(function(el) {
+    el.classList.add('blur-in');
+    observer.observe(el);
+  });
+
+  if (window.innerWidth > 1024 && typeof Lenis !== 'undefined') {
+    var lenis = new Lenis({ duration: 1.7, easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, smoothWheel: true });
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+  }
+})();
+</script>
+</body>
+</html>
