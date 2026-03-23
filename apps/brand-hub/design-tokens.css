@@ -1,0 +1,111 @@
+:root {
+  /* === BACKGROUNDS (depth-based) === */
+  --bg-void: #050508;
+  --bg-base: #0A0E1A;
+  --bg-surface: #0F172A;
+  --bg-elevated: #1E293B;
+  --bg-border: #334155;
+  --bg-border-subtle: rgba(37,99,235,0.1);
+
+  /* === BRAND COLORS === */
+  --blue-600: #2563EB;
+  --blue-500: #3B82F6;
+  --blue-400: #60A5FA;
+  --cyan-500: #06B6D4;
+  --amber-500: #F59E0B;
+  --amber-400: #FBBF24;
+  --green-500: #10B981;
+  --red-500: #EF4444;
+  --violet-500: #7C3AED;
+  --violet-400: #A78BFA;
+
+  /* === TEXT === */
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --text-subtle: #64748B;
+  --text-disabled: #334155;
+
+  /* === GRADIENTS === */
+  --gradient-brand: linear-gradient(135deg, #2563EB 0%, #06B6D4 100%);
+  --gradient-warm: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);
+  --gradient-card: linear-gradient(145deg, rgba(30,41,59,0.8) 0%, rgba(15,23,42,0.95) 100%);
+
+  /* === TYPOGRAPHY === */
+  --font-display: 'Montserrat', system-ui, sans-serif;
+  --font-body: 'Montserrat', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --text-xs: 10px;
+  --text-sm: 12px;
+  --text-base: 14px;
+  --text-md: 16px;
+  --text-lg: 18px;
+  --text-xl: 22px;
+  --text-2xl: 28px;
+  --text-3xl: 36px;
+  --text-4xl: 48px;
+
+  /* === SPACING === */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* === RADIUS === */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* === SHADOWS === */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.5);
+  --shadow-glow: 0 0 30px rgba(37,99,235,0.3);
+  --shadow-glow-cyan: 0 0 20px rgba(6,182,212,0.08);
+
+  /* === TRANSITIONS === */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 0.2s;
+  --duration-normal: 0.3s;
+  --duration-slow: 0.8s;
+}
+
+/* Backward compatibility aliases */
+:root {
+  --midnight: var(--bg-base);
+  --navy-deep: var(--bg-surface);
+  --navy: var(--bg-elevated);
+  --slate: var(--bg-border);
+  --slate-light: var(--text-subtle);
+  --brand-blue: var(--blue-600);
+  --brand-blue-light: var(--blue-500);
+  --brand-cyan: var(--cyan-500);
+  --brand-amber: var(--amber-500);
+  --brand-amber-light: var(--amber-400);
+  --brand-green: var(--green-500);
+  --brand-red: var(--red-500);
+  --brand-violet: var(--violet-500);
+  --white: var(--text-primary);
+  --gray-100: #F1F5F9;
+  --gray-200: #E2E8F0;
+  --gray-400: var(--text-muted);
+  --gradient-accent: var(--gradient-brand);
+  --font: var(--font-display);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
