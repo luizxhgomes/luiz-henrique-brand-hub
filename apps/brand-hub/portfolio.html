@@ -3,47 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio — Brand Hub</title>
-  <meta name="description" content="Portfolio de Luiz Henrique — Arquiteto de Operações Inteligentes. +6 anos em Growth Marketing, RevOps e BI.">
-  <meta property="og:title" content="Portfolio — Brand Hub">
-  <meta property="og:description" content="Do Complexo da Maré para Arquiteto de Operações Inteligentes. RevOps + AIOX + Agentes de IA.">
-  <meta property="og:type" content="website">
-  <meta name="theme-color" content="#2563EB">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="manifest" href="manifest.json">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="design-tokens.css">
+  <title>Portfólio & Currículo | Luiz Henrique</title>
+  <link rel="icon" type="image/png" href="https://luizxhgomes.github.io/brand-hub/assets/logo/logo-mark.png">
   <link rel="stylesheet" href="styles.css">
   <style>
     /* === PORTFOLIO-SPECIFIC STYLES === */
 
-    /* Hero full-width */
+    /* Hero full-width v6.0 */
     .hero {
       position: relative;
       padding: 80px 48px 64px;
-      background: linear-gradient(180deg, rgba(37,99,235,0.08) 0%, rgba(6,182,212,0.04) 40%, transparent 100%);
-      border-bottom: 1px solid rgba(37,99,235,0.15);
+      background: linear-gradient(180deg, rgba(2,68,155,0.12) 0%, rgba(7,102,184,0.05) 40%, transparent 100%);
+      border-bottom: 1px solid rgba(7,102,184,0.18);
       overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -120px; right: -120px;
-      width: 400px; height: 400px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -80px; left: -80px;
-      width: 300px; height: 300px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(6,182,212,0.05) 0%, transparent 70%);
-      pointer-events: none;
     }
     .hero-badge {
       display: inline-flex;
@@ -51,58 +23,66 @@
       gap: 8px;
       padding: 6px 16px;
       border-radius: var(--radius-full);
-      background: rgba(37,99,235,0.12);
-      color: var(--brand-blue-light);
+      background: rgba(7,102,184,0.15);
+      color: var(--blue-electric);
+      font-family: var(--font-mono);
       font-size: 11px;
-      font-weight: 700;
+      font-weight: 500;
       letter-spacing: 1.5px;
       text-transform: uppercase;
       margin-bottom: 20px;
     }
     .hero-badge .dot {
-      width: 6px; height: 6px;
+      width: 8px; height: 8px;
       border-radius: 50%;
       background: var(--brand-green);
-      animation: pulse-dot 2s ease-in-out infinite;
-    }
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.4); }
+      box-shadow: 0 0 8px var(--brand-green);
+      animation: blink 2s ease-in-out infinite;
     }
     .hero h1 {
-      font-size: 42px;
-      font-weight: 900;
-      line-height: 1.15;
-      letter-spacing: 0.5px;
-      max-width: 700px;
+      font-family: var(--font-display);
+      font-size: clamp(36px, 4.5vw, 56px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      max-width: 720px;
+      color: var(--white);
     }
     .hero h1 .gradient-text {
-      background: var(--gradient-accent);
+      background: var(--gradient-primary);
+      background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 5s linear infinite;
     }
     .hero .hero-sub {
-      font-size: 17px;
-      color: var(--gray-400);
-      margin-top: 16px;
-      max-width: 580px;
-      line-height: 1.7;
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 16px;
+      color: var(--gray-200);
+      margin-top: 20px;
+      max-width: 640px;
+      line-height: 1.75;
     }
     .hero-stats {
       display: flex;
       gap: 40px;
-      margin-top: 40px;
+      margin-top: 44px;
       flex-wrap: wrap;
     }
     .hero-stat {
       text-align: left;
     }
     .hero-stat-val {
+      font-family: var(--font-display);
       font-size: 36px;
-      font-weight: 900;
-      background: var(--gradient-accent);
+      font-weight: 700;
+      line-height: 1;
+      background: var(--gradient-primary);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     .hero-stat-label {
       font-size: 11px;
@@ -110,6 +90,14 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       margin-top: 2px;
+    }
+    .hero-stat-context {
+      font-size: 11px;
+      color: var(--gray-200);
+      margin-top: 8px;
+      line-height: 1.4;
+      max-width: 200px;
+      font-weight: 400;
     }
 
     /* ROAS progression bar */
@@ -133,7 +121,7 @@
     .roas-bar {
       width: 100%;
       border-radius: 4px 4px 0 0;
-      background: var(--gradient-accent);
+      background: var(--gradient-primary);
       min-height: 8px;
       transition: height 1.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
@@ -161,7 +149,7 @@
     }
     .case-card:hover {
       border-color: rgba(37,99,235,0.3);
-      box-shadow: var(--shadow-glow-blue);
+      box-shadow: var(--glow-electric);
       transform: translateY(-2px);
     }
     .case-header {
@@ -402,62 +390,43 @@
 </head>
 <body>
 
-<a href="#main-content" class="skip-link">Pular para o conteúdo</a>
-<button class="menu-toggle" aria-label="Abrir menu" onclick="toggleMenu()">
-  <svg class="icon-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-  <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-</button>
-<div class="sidebar-overlay" onclick="toggleMenu()"></div>
-
-<nav class="sidebar" data-lenis-prevent>
-  <div class="sidebar-logo"><img src="assets/logo/logo-mark.png" alt="LH" style="background:#F8FAFC;padding:8px;border-radius:12px;">
-    <h1>Luiz Henrique</h1>
-    <p>Arquiteto de Operações Inteligentes</p>
-  </div>
-  <div class="sidebar-nav">
-    <div class="sidebar-section-label">BRAND HUB</div>
-    <a href="index.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Dashboard</a>
-    <a href="dna.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0113 0"/></svg>DNA & Persona</a>
-    <a href="estrategia.html"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>Estratégia de Marca</a>
-    <a href="arsenal.html"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Arsenal de Conteúdos</a>
-    <a href="calendario.html"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Calendário Editorial</a>
-    <a href="gerador.html"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Sistema Gerador</a>
-    <a href="voz-tom.html"><svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>Voz & Tom</a>
-    <div class="sidebar-section-label">RECURSOS</div>
-    <a href="brandbook.html"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 6v6l4 2"/></svg>Brandbook Visual</a>
-    <a href="logo-preview.html"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg>Identidade Visual</a>
-    <a href="portfolio.html" class="active"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Portfolio</a>
-  </div>
-  <div class="sidebar-footer">@luizhenriquexpro · Brand Hub v2.0</div>
-</nav>
-
-<div class="main" id="main-content">
-
 <div class="main" style="margin-left:0;">
 
+  <div class="hero-orbs" aria-hidden="true" style="position:fixed;inset:0;z-index:0;">
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+    <div class="hero-glow hero-glow-3"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-scan"></div>
+  </div>
+
   <!-- ========== HERO ========== -->
-  <div class="hero">
-    <img src="https://luizxhgomes.github.io/brand-hub/assets/logo/logo-full-white.png" alt="LH" style="height:80px;margin-bottom:28px;" class="scroll-bottom">
+  <div class="hero" style="position:relative;z-index:1;">
+    <img src="https://luizxhgomes.github.io/brand-hub/assets/logo/shadow-main.png" alt="LH" style="height:72px;margin-bottom:28px;" class="reveal">
     <div class="hero-badge scroll-bottom"><span class="dot"></span> Aberto a novas oportunidades</div>
-    <h1 class="scroll-bottom">Luiz Henrique<br><span class="gradient-text">Martech, RevOps & Gestão de Dados com IA</span></h1>
-    <p class="hero-sub scroll-bottom">+6 anos de experiência em Growth Marketing, Revenue Operations e Business Intelligence. Especialista em construir sistemas integrados que conectam marketing, vendas, CS e operação em um fluxo único de dados, potencializados por inteligência artificial.</p>
+    <h1 class="scroll-bottom">Luiz Henrique<br><span class="gradient-text">Arquiteto de Operações | RevOps | TechLead</span></h1>
+    <p class="hero-sub scroll-bottom">Construo sistemas que orquestram agents de IA. +6 anos de trajetória em marketing digital e 7 sistemas autorais em produção entre 2025 e 2026. Arquiteto da evolução do Núcleo de Inteligência de Dados da V4 Bilinski (7 áreas, 8 meses em produção) e construtor da Fábrica de Sistemas com vibe coding mais Claude Code.</p>
 
     <div class="hero-stats">
       <div class="hero-stat scroll-bottom">
-        <div class="hero-stat-val">R$ 6Mi+</div>
-        <div class="hero-stat-label">Em mídia paga gerenciada</div>
+        <div class="hero-stat-val">7</div>
+        <div class="hero-stat-label">Sistemas em produção</div>
+        <div class="hero-stat-context">Núcleo V4 Bilinski mais 6 sistemas autorais externos entre 2025 e 2026</div>
       </div>
       <div class="hero-stat scroll-bottom">
         <div class="hero-stat-val">ROAS 140</div>
-        <div class="hero-stat-label">Retorno de pico</div>
+        <div class="hero-stat-label">Pico high-ticket</div>
+        <div class="hero-stat-context">Base Viral em 2025, operação de consultorias premium com 70% de taxa de oportunidades</div>
       </div>
       <div class="hero-stat scroll-bottom">
-        <div class="hero-stat-val">+2.500</div>
-        <div class="hero-stat-label">MQLs gerados</div>
+        <div class="hero-stat-val">R$ 6Mi+</div>
+        <div class="hero-stat-label">Mídia paga gerenciada</div>
+        <div class="hero-stat-context">Somatório de 2021 a 2025 em 8 empresas da jornada de performance</div>
       </div>
       <div class="hero-stat scroll-bottom">
         <div class="hero-stat-val">7 áreas</div>
-        <div class="hero-stat-label">Conectadas em 1 sistema</div>
+        <div class="hero-stat-label">Orquestradas no Núcleo V4</div>
+        <div class="hero-stat-context">Marketing, Comunicação, Comercial, CS/CX, Operação, Financeiro e RH, em produção há 8 meses</div>
       </div>
     </div>
   </div>
@@ -467,7 +436,8 @@
     <!-- ========== RESUMO EXECUTIVO ========== -->
     <div class="card" style="margin-bottom:32px;">
       <div class="card-label">RESUMO PROFISSIONAL</div>
-      <p>Coordenador de Revenue Operations e líder da frente TECH & IA na V4 Bilinski & Co, com mais de 6 anos de atuação em Growth Marketing, Performance, Business Intelligence e Martech. Responsável por desenvolver e implementar sistemas internos que integram 7 áreas operacionais (Marketing, Comunicação, Comercial, CS/CX, Operação, Financeiro e RH) em um único fluxo de dados orientado a resultados. Experiência comprovada em gestão de mais de R$ 6 milhões em mídia paga, com ROAS de pico de 140 em vendas high ticket e múltiplos lançamentos de 7 e 8 dígitos. Atualmente aplica Teoria das Restrições combinada com Agentes de IA para identificação e eliminação sistemática de gargalos, construção de dashboards inteligentes e automação de processos operacionais data-driven.</p>
+      <p>Passei 5 anos gerenciando tráfego pago achando que o problema era gerar mais leads. Com mais de R$ 6 milhões em mídia paga gerenciados entre 2021 e 2025, aprendi que o problema real era outro: as empresas não tinham arquitetura para transformar esses leads em receita. Dados isolados, áreas desconectadas, receita travada em gargalos invisíveis.</p>
+      <p style="margin-top:12px;">Hoje, como Coordenador Sênior Martech, Arquiteto de Operações, RevOps e TechLead na V4 Bilinski &amp; Co, opero uma tese diferente: humanos orquestram, agents executam. Arquiteta da evolução do Núcleo de Inteligência de Dados da unidade (7 áreas conectadas por agents de IA, em produção há 8 meses) e construtor de 6 sistemas autorais externos em paralelo via Fábrica de Sistemas com vibe coding mais Claude Code. Portfólio consolidado: OUTBILI (prospecção B2B serverless), BilinskiZap (automação WhatsApp com agents), Keyra (financeiro operacional SaaS multi-tenant), Social Media AI, Carousel AI e InsightMeet AI.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;">
         <span class="badge badge-blue">Revenue Operations</span>
         <span class="badge badge-cyan">Martech</span>
@@ -504,7 +474,7 @@
       </div>
       <div class="roas-bar-item">
         <div class="roas-bar-val">140</div>
-        <div class="roas-bar" data-height="200" style="height:8px; background: var(--gradient-accent);"></div>
+        <div class="roas-bar" data-height="200" style="height:8px; background: var(--gradient-primary);"></div>
         <div class="roas-bar-label">2025<br>Sistemas</div>
       </div>
     </div>
@@ -512,7 +482,7 @@
     <!-- ========== JORNADA / TIMELINE ========== -->
     <div class="section-divider">
       <h2>A Jornada: Cada Posição Construiu a Próxima</h2>
-      <p>10 posições em 5 anos. De SDR a Arquiteto de Operações Inteligentes.</p>
+      <p>10 posições em 5 anos. De SDR a Arquiteto de Operações | RevOps | TechLead.</p>
     </div>
 
     <div class="timeline" style="margin-bottom:32px;">
@@ -550,12 +520,12 @@
       </div>
       <div class="timeline-item">
         <div class="timeline-year">SET/2025 a ATUAL &middot; V4 BILINSKI & CO</div>
-        <div class="timeline-text"><strong>Analista Sênior Martech / Coordenador de RevOps TECH & IA</strong> &middot; São Paulo<br>Responsável por conectar 7 áreas em fluxo único de dados. Desenvolvimento de sistemas internos com múltiplos módulos operacionais. Liderança da frente TECH & IA com aplicação de Teoria das Restrições e Agentes de IA.</div>
+        <div class="timeline-text"><strong>Coordenador Sênior Martech | Arquiteto de Operações | RevOps | TechLead</strong> &middot; São Paulo<br>Arquiteta e mantém em evolução o Núcleo de Inteligência de Dados da unidade, sistema orquestrado por agents de IA que conecta 7 áreas (marketing, comunicação, comercial, CS/CX, operação, financeiro, RH) em fluxo único de dados (em produção há 8 meses; papel de arquiteto da evolução e gestor da criação). Em paralelo, construiu 6 sistemas autorais externos via Fábrica de Sistemas com vibe coding mais Claude Code, sem time de engenharia tradicional: OUTBILI (prospecção B2B serverless), BilinskiZap (automação WhatsApp com agents), Keyra (financeiro operacional SaaS multi-tenant), Social Media AI (pipeline multimodal), Carousel AI (IA generativa) e InsightMeet AI (análise comportamental em tempo real no GCP Cloud Run). Aplica 4 frameworks proprietários: Fábrica de Sistemas, Squad-First, Realocação Inteligente e Núcleo de Inteligência.</div>
       </div>
     </div>
 
     <div class="quote-block scroll-right">
-      <p>"O profissional que domina dados, processos e inteligência artificial consegue transformar qualquer operação. Não se trata de otimizar campanhas. Se trata de construir o sistema que faz a empresa inteira crescer de forma previsível."</p>
+      <p>"A maioria das empresas não tem problema de venda. Tem problema de estrutura. A receita já está lá dentro, travada em gargalos que ninguém enxerga. Eu construo o sistema que destrava."</p>
       <cite>Luiz Henrique Martins da Silva</cite>
     </div>
 
@@ -568,15 +538,18 @@
     <div class="grid-3" style="margin-bottom:24px;">
       <div class="stat-card">
         <div class="stat-value">R$ 6Mi+</div>
-        <div class="stat-label">Investimento em mídia gerenciado</div>
+        <div class="stat-label">Mídia paga gerenciada</div>
+        <div class="stat-context">Somatório de 2021 a 2025 em 8 empresas (Grupo OTG, R10 Score, Tylty, Contab. Facilitada, Grupo 220, V4 Nunes, Laatus, Base Viral)</div>
       </div>
       <div class="stat-card">
         <div class="stat-value">ROAS 140</div>
-        <div class="stat-label">Pico em vendas high ticket</div>
+        <div class="stat-label">Pico em vendas high-ticket</div>
+        <div class="stat-context">Base Viral em 2025 como Coordenador de Performance, operação de consultorias premium com 70% de taxa de oportunidades</div>
       </div>
       <div class="stat-card">
         <div class="stat-value">+2.500</div>
-        <div class="stat-label">MQLs qualificados (Base Viral)</div>
+        <div class="stat-label">MQLs qualificados</div>
+        <div class="stat-context">Geração acumulada na Base Viral em 9 meses, com meta superada em +1.000% e taxa de 70% para oportunidade</div>
       </div>
     </div>
 
@@ -584,18 +557,22 @@
       <div class="stat-card">
         <div class="stat-value">70%</div>
         <div class="stat-label">Taxa de oportunidades</div>
+        <div class="stat-context">Base Viral, 2025. Conversão de MQL para SQL em operação 100% data-driven para consultorias high-ticket</div>
       </div>
       <div class="stat-card">
         <div class="stat-value">+217%</div>
-        <div class="stat-label">Geração de leads</div>
+        <div class="stat-label">Crescimento de leads</div>
+        <div class="stat-context">Grupo 220 como Head de Tráfego em 2024. ROAS médio de 46 com dashboards de decisão em tempo real</div>
       </div>
       <div class="stat-card">
-        <div class="stat-value">7+</div>
-        <div class="stat-label">Sistemas internos criados</div>
+        <div class="stat-value">7</div>
+        <div class="stat-label">Sistemas em produção</div>
+        <div class="stat-context">Portfólio autoral entre 2025 e 2026: Núcleo de Inteligência V4 mais OUTBILI, BilinskiZap, Keyra, Social Media AI, Carousel AI e InsightMeet AI</div>
       </div>
       <div class="stat-card">
-        <div class="stat-value">100k+</div>
-        <div class="stat-label">Inscritos YouTube</div>
+        <div class="stat-value">+20.000</div>
+        <div class="stat-label">Leads qualificados</div>
+        <div class="stat-context">Laatus como Head de Marketing em 6 meses (ago/2024 a jan/2025). ROAS 8,2 com CPL reduzido em 32%</div>
       </div>
     </div>
 
@@ -610,19 +587,19 @@
         <div class="case-header">
           <div class="case-icon" style="background:rgba(37,99,235,0.12);">&#9881;</div>
           <div>
-            <div class="case-title">V4 Bilinski & Co: Sistemas internos integrados</div>
-            <div class="case-role">Coord. RevOps TECH & IA | set/2025 - atual</div>
+            <div class="case-title">V4 Bilinski &amp; Co: Núcleo de Inteligência de Dados</div>
+            <div class="case-role">Coordenador Sênior Martech | Arquiteto de Operações | set/2025 a atual</div>
           </div>
         </div>
         <div class="case-section-label" style="color:var(--brand-red);">DESAFIO</div>
-        <div class="case-text">Sete áreas da empresa operando em silos, sem integração de dados, com decisões baseadas em achismo e processos manuais.</div>
+        <div class="case-text">Sete áreas da unidade operando em silos, dados isolados por ferramenta, decisão estratégica dependente de reuniões de alinhamento de dado.</div>
         <div class="case-section-label" style="color:var(--brand-blue-light);">SOLUÇÃO</div>
-        <div class="case-text">Desenvolvimento de sistemas internos com múltiplos módulos operacionais, conectando Marketing, Comercial, CS/CX, Operação, Comunicação, Financeiro e RH em fluxo único. Aplicação de Teoria das Restrições para mapeamento de gargalos e integração de Agentes de IA para automação operacional.</div>
+        <div class="case-text">Arquitetura da evolução do Núcleo de Inteligência de Dados: camada unificada, agents de IA especializados por área operando sobre dados consolidados, orquestrador central coordenando decisões. Aplicação do padrão Núcleo de Inteligência em produção há 8 meses. Papel de arquiteto da evolução e gestor da criação (não idealizador único).</div>
         <div class="case-metrics">
-          <span class="case-metric">7 áreas conectadas</span>
-          <span class="case-metric">Sistemas proprietários</span>
-          <span class="case-metric">Decisões data-driven</span>
-          <span class="case-metric">IA operacional</span>
+          <span class="case-metric">7 áreas orquestradas</span>
+          <span class="case-metric">8 meses em produção</span>
+          <span class="case-metric">Uma verdade única</span>
+          <span class="case-metric">Agents especializados</span>
         </div>
       </div>
 
@@ -685,6 +662,202 @@
           <span class="case-metric">Múltiplos 7 dígitos</span>
           <span class="case-metric">8 dígitos</span>
         </div>
+      </div>
+    </div>
+
+    <!-- ========== SISTEMAS AUTORAIS EXTERNOS ========== -->
+    <div class="section-divider">
+      <h2>Sistemas autorais em produção</h2>
+      <p>6 sistemas construídos em paralelo à V4 Bilinski, via Fábrica de Sistemas com vibe coding mais Claude Code. Sem time de engenharia tradicional.</p>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:24px;">
+      <div class="case-card scroll-bottom">
+        <div class="case-header">
+          <div class="case-icon" style="background:rgba(6,182,212,0.12);">&#128205;</div>
+          <div>
+            <div class="case-title">OUTBILI</div>
+            <div class="case-role">Prospecção B2B serverless multi-API</div>
+          </div>
+        </div>
+        <div class="case-text" style="margin-top:8px;">Plataforma serverless de prospecção B2B com enriquecimento automático em cascata (CNPJa para dados cadastrais, Assertiva para WhatsApp do decisor, BilinskiZap para ativação). Gates obrigatórios de decisor mais telefone, pipeline Kanban com 7 estágios.</div>
+        <div class="case-metrics">
+          <span class="case-metric">React 19 + TypeScript</span>
+          <span class="case-metric">Cloudflare Workers</span>
+          <span class="case-metric">4 APIs em cascata</span>
+        </div>
+      </div>
+
+      <div class="case-card scroll-bottom">
+        <div class="case-header">
+          <div class="case-icon" style="background:rgba(16,185,129,0.12);">&#128241;</div>
+          <div>
+            <div class="case-title">BilinskiZap</div>
+            <div class="case-role">Automação WhatsApp com agents de memória</div>
+          </div>
+        </div>
+        <div class="case-text" style="margin-top:8px;">Plataforma completa de automação WhatsApp. Campanhas em massa com templates Meta aprovados, inbox em tempo real, agents de IA que lembram do histórico de cada cliente, lead forms embeddáveis, gestão de contatos via CSV.</div>
+        <div class="case-metrics">
+          <span class="case-metric">API Oficial Meta</span>
+          <span class="case-metric">PWA</span>
+          <span class="case-metric">Memória persistente</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:24px;">
+      <div class="case-card scroll-bottom">
+        <div class="case-header">
+          <div class="case-icon" style="background:rgba(236,72,153,0.12);">&#128181;</div>
+          <div>
+            <div class="case-title">Keyra</div>
+            <div class="case-role">Financeiro operacional SaaS multi-tenant</div>
+          </div>
+        </div>
+        <div class="case-text" style="margin-top:8px;">Primeiro financeiro operacional do setor de estética. Conecta agenda, serviços, comanda, transação e DRE automaticamente. Elimina alimentação manual pós-faturamento típica de ERPs. UX inegociável: números absolutos, comparativos textuais, tela única.</div>
+        <div class="case-metrics">
+          <span class="case-metric">Next.js 16</span>
+          <span class="case-metric">Supabase RLS</span>
+          <span class="case-metric">Stripe + Asaas</span>
+          <span class="case-metric">usekeyra.vercel.app</span>
+        </div>
+      </div>
+
+      <div class="case-card scroll-bottom">
+        <div class="case-header">
+          <div class="case-icon" style="background:rgba(245,158,11,0.12);">&#128250;</div>
+          <div>
+            <div class="case-title">Social Media AI</div>
+            <div class="case-role">Pipeline multimodal Gemini mais Claude</div>
+          </div>
+        </div>
+        <div class="case-text" style="margin-top:8px;">Coleta Reels virais de concorrentes, analisa cada vídeo com Gemini (Conceito, Gancho, Retenção, Recompensa, Roteiro), envia análise mais contexto da marca para Claude gerar novos conceitos adaptados. Pipeline de 7 fases coordenadas.</div>
+        <div class="case-metrics">
+          <span class="case-metric">Apify</span>
+          <span class="case-metric">Gemini 2.0 Flash</span>
+          <span class="case-metric">Claude Sonnet</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:32px;">
+      <div class="case-card scroll-bottom">
+        <div class="case-header">
+          <div class="case-icon" style="background:rgba(124,58,237,0.12);">&#127912;</div>
+          <div>
+            <div class="case-title">Carousel AI</div>
+            <div class="case-role">Gerador Instagram com IA generativa</div>
+          </div>
+        </div>
+        <div class="case-text" style="margin-top:8px;">Cria carrosséis multi-slide com texto e imagens geradas por IA. Templates estilizados (Twitter, Storyteller), drag-and-drop de slides, exportação direta para PNG via html-to-image.</div>
+        <div class="case-metrics">
+          <span class="case-metric">React 19 + Vite 6</span>
+          <span class="case-metric">Gemini (texto e imagem)</span>
+          <span class="case-metric">dnd-kit</span>
+        </div>
+      </div>
+
+      <div class="case-card scroll-bottom">
+        <div class="case-header">
+          <div class="case-icon" style="background:rgba(37,99,235,0.12);">&#128064;</div>
+          <div>
+            <div class="case-title">InsightMeet AI</div>
+            <div class="case-role">Análise comportamental em tempo real</div>
+          </div>
+        </div>
+        <div class="case-text" style="margin-top:8px;">Analisa micro-expressões e gesticulações em reuniões de videoconferência. Identifica emoções, gestos, engajamento, atenção, postura, voz e dicção em tempo real. Gera relatório automático para ata. Integração Google Meet.</div>
+        <div class="case-metrics">
+          <span class="case-metric">GCP Cloud Run</span>
+          <span class="case-metric">Pipeline multimodal</span>
+          <span class="case-metric">Realtime</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== FRAMEWORKS PROPRIETÁRIOS ========== -->
+    <div class="section-divider">
+      <h2>Frameworks proprietários</h2>
+      <p>Os 4 métodos que sustentam a Fábrica de Sistemas e a orquestração de agents.</p>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:24px;">
+      <div class="case-card scroll-bottom">
+        <div class="case-header">
+          <div class="case-icon" style="background:rgba(37,99,235,0.12);">&#9881;</div>
+          <div>
+            <div class="case-title">Fábrica de Sistemas</div>
+            <div class="case-role">Método principal, construção em dias</div>
+          </div>
+        </div>
+        <div class="case-text" style="margin-top:12px;">Transforma ideia em sistema em produção em dias, não meses. Diagnóstico de restrição, arquitetura modular com agents especializados, construção em ciclos via vibe coding mais Claude Code, integração direta com operação existente e entrega com camada de mensuração embutida.</div>
+        <div class="case-metrics">
+          <span class="case-metric">7 sistemas em produção</span>
+          <span class="case-metric">Sem time tradicional</span>
+          <span class="case-metric">Dias vs trimestres</span>
+        </div>
+      </div>
+
+      <div class="case-card scroll-bottom">
+        <div class="case-header">
+          <div class="case-icon" style="background:rgba(16,185,129,0.12);">&#9889;</div>
+          <div>
+            <div class="case-title">Squad-First</div>
+            <div class="case-role">Método de orquestração de agents</div>
+          </div>
+        </div>
+        <div class="case-text" style="margin-top:12px;">Decomposição de problemas complexos em squads de agents especializados. Cada agent com função única, humano orquestra o todo. Mapeamento de funções, decomposição em tarefas atômicas, criação de agents por tarefa, orquestração central em cascata.</div>
+        <div class="case-metrics">
+          <span class="case-metric">Cascata coordenada</span>
+          <span class="case-metric">Humano orquestra</span>
+          <span class="case-metric">Agents executam</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:32px;">
+      <div class="case-card scroll-bottom">
+        <div class="case-header">
+          <div class="case-icon" style="background:rgba(245,158,11,0.12);">&#128200;</div>
+          <div>
+            <div class="case-title">Realocação Inteligente</div>
+            <div class="case-role">Princípio diagnóstico humano x squad</div>
+          </div>
+        </div>
+        <div class="case-text" style="margin-top:12px;font-family:var(--font);font-size:18px;font-weight:800;color:var(--white);text-align:center;padding:12px 0;">Trabalho tático vira máquina. Trabalho estratégico vira humano.</div>
+        <div class="case-text">Auditoria de tempo por função. Classificação binária de tarefas (julgamento continua humano, padrão migra para agent). Construção dos agents executores. Redesenho das funções humanas para alto valor. Mensuração do ganho em capacidade operacional, não em corte de custo.</div>
+      </div>
+
+      <div class="case-card scroll-bottom">
+        <div class="case-header">
+          <div class="case-icon" style="background:rgba(124,58,237,0.12);">&#127891;</div>
+          <div>
+            <div class="case-title">Núcleo de Inteligência</div>
+            <div class="case-role">Padrão arquitetural de unificação de dados</div>
+          </div>
+        </div>
+        <div class="case-text" style="margin-top:12px;">Unifica dados de todas as áreas em fluxo único. Agents especializados operam sobre camada consolidada. Orquestrador central coordena decisões. Empresa inteira opera sobre a mesma verdade. Decisão estratégica deixa de depender de reunião de alinhamento.</div>
+        <div class="case-metrics">
+          <span class="case-metric" style="background:rgba(245,158,11,0.1);color:var(--brand-amber);">V4 Bilinski, 7 áreas, 8 meses em produção</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== VIBE CODING ========== -->
+    <div class="section-divider">
+      <h2>Vibe coding: construindo sistemas com IA</h2>
+      <p>Profissionais de negócio virando criadores de sistemas. Essa é a revolução.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:32px;">
+      <div class="card-label">O QUE ESTOU CONSTRUINDO</div>
+      <p>Vibe coding é construir sistemas inteiros conversando com IA. Você descreve o que precisa, a IA escreve o código, e juntos vocês iteram até o sistema funcionar. Não é sobre ser programador. É sobre ser o arquiteto que dirige a construção, e a IA é o time de engenharia.</p>
+      <p style="margin-top:12px;">Com Claude Code, aplico minha experiência de growth marketing e RevOps para construir soluções que antes exigiriam um time de desenvolvimento inteiro. De ideia a sistema rodando em horas, não meses. 1 profissional de negócio + Claude Code = capacidade de um time completo.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;">
+        <span class="badge badge-cyan">Claude Code</span>
+        <span class="badge badge-blue">Sistemas com IA</span>
+        <span class="badge badge-green">Automação inteligente</span>
+        <span class="badge badge-amber">Building in public</span>
+        <span class="badge badge-violet">Agentes autônomos</span>
       </div>
     </div>
 
@@ -800,8 +973,8 @@
         <ul style="list-style:none;margin-top:8px;">
           <li style="margin-bottom:10px;color:var(--gray-400);font-size:14px;"><span style="color:var(--brand-cyan);font-weight:600;">Google Ads</span> Certificação oficial Google</li>
           <li style="margin-bottom:10px;color:var(--gray-400);font-size:14px;"><span style="color:var(--brand-cyan);font-weight:600;">Meta Blueprint</span> Certificação oficial Meta</li>
-          <li style="margin-bottom:10px;color:var(--gray-400);font-size:14px;"><span style="color:var(--brand-cyan);font-weight:600;">Business Intelligence</span> Formação em BI e Data Analytics</li>
-          <li style="margin-bottom:10px;color:var(--gray-400);font-size:14px;"><span style="color:var(--brand-cyan);font-weight:600;">Revenue Operations</span> Especialização em RevOps e Martech</li>
+          <li style="margin-bottom:10px;color:var(--gray-400);font-size:14px;"><span style="color:var(--brand-cyan);font-weight:600;">Business Intelligence</span> Autodidata, Looker, Power BI, BigQuery</li>
+          <li style="margin-bottom:10px;color:var(--gray-400);font-size:14px;"><span style="color:var(--brand-cyan);font-weight:600;">Revenue Operations</span> Prática profissional em RevOps e Martech</li>
         </ul>
       </div>
       <div class="card">
@@ -809,8 +982,9 @@
         <ul style="list-style:none;margin-top:8px;">
           <li style="margin-bottom:10px;color:var(--gray-400);font-size:14px;"><span style="color:var(--brand-amber);font-weight:600;">Google Partners</span> Convidado oficial para eventos</li>
           <li style="margin-bottom:10px;color:var(--gray-400);font-size:14px;"><span style="color:var(--brand-amber);font-weight:600;">Hotmart</span> Convidado oficial para eventos</li>
-          <li style="margin-bottom:10px;color:var(--gray-400);font-size:14px;"><span style="color:var(--brand-amber);font-weight:600;">YouTube</span> +100.000 inscritos e +7 milhões de visualizações em conteúdo educacional</li>
-          <li style="margin-bottom:10px;color:var(--gray-400);font-size:14px;"><span style="color:var(--brand-amber);font-weight:600;">Idiomas</span> Português (nativo)</li>
+          <li style="margin-bottom:10px;color:var(--gray-400);font-size:14px;"><span style="color:var(--brand-amber);font-weight:600;">YouTube</span> Estrategista digital para expert do segmento, coordenando aquisição e pauta de canal (operação do time, papel de coordenação, não autoria do canal)</li>
+          <li style="margin-bottom:10px;color:var(--gray-400);font-size:14px;"><span style="color:var(--brand-amber);font-weight:600;">Português</span> Nativo</li>
+          <li style="margin-bottom:10px;color:var(--gray-400);font-size:14px;"><span style="color:var(--brand-amber);font-weight:600;">Inglês</span> Básico/intermediário</li>
         </ul>
       </div>
     </div>
@@ -861,14 +1035,14 @@
     </div>
 
     <div class="grid-4 stagger" style="margin-bottom:32px;">
-      <div class="stat-card"><div class="stat-value" style="font-size:16px;">V4 Bilinski & Co</div><div class="stat-label">RevOps TECH & IA</div></div>
-      <div class="stat-card"><div class="stat-value" style="font-size:16px;">Base Viral</div><div class="stat-label">Performance</div></div>
-      <div class="stat-card"><div class="stat-value" style="font-size:16px;">Laatus</div><div class="stat-label">Head de Marketing</div></div>
-      <div class="stat-card"><div class="stat-value" style="font-size:16px;">Grupo 220</div><div class="stat-label">Head de Tráfego</div></div>
-      <div class="stat-card"><div class="stat-value" style="font-size:16px;">Contab. Facilitada</div><div class="stat-label">Gestor Sênior</div></div>
-      <div class="stat-card"><div class="stat-value" style="font-size:16px;">V4 Nunes&Co</div><div class="stat-label">Sr. Account Mgr</div></div>
-      <div class="stat-card"><div class="stat-value" style="font-size:16px;">Tylty Company</div><div class="stat-label">Tráfego Pago</div></div>
-      <div class="stat-card"><div class="stat-value" style="font-size:16px;">Grupo OTG</div><div class="stat-label">SDR + Tráfego</div></div>
+      <div class="stat-card"><div class="stat-value" style="font-size:16px;">V4 Bilinski &amp; Co</div><div class="stat-label">Arquiteto de Operações</div><div class="stat-context">set/2025 a atual, Núcleo V4 em produção há 8 meses</div></div>
+      <div class="stat-card"><div class="stat-value" style="font-size:16px;">Base Viral</div><div class="stat-label">Coord. de Performance</div><div class="stat-context">dez/2024 a set/2025, ROAS 140 e +2.500 MQLs</div></div>
+      <div class="stat-card"><div class="stat-value" style="font-size:16px;">Laatus</div><div class="stat-label">Head de Marketing</div><div class="stat-context">ago/2024 a jan/2025, +20.000 leads e ROAS 8,2</div></div>
+      <div class="stat-card"><div class="stat-value" style="font-size:16px;">Grupo 220</div><div class="stat-label">Head de Tráfego</div><div class="stat-context">jan/2024 a abr/2024, ROAS 46 e +217% em leads</div></div>
+      <div class="stat-card"><div class="stat-value" style="font-size:16px;">Contab. Facilitada</div><div class="stat-label">Gestor Sênior</div><div class="stat-context">ago/2023 a jan/2024, ROAS 16,8 e +26% faturamento</div></div>
+      <div class="stat-card"><div class="stat-value" style="font-size:16px;">V4 Nunes&amp;Co</div><div class="stat-label">Sr. Account Manager</div><div class="stat-context">abr/2024 a jul/2024, +81% ROI B2B e -58% tempo de execução</div></div>
+      <div class="stat-card"><div class="stat-value" style="font-size:16px;">Tylty Company</div><div class="stat-label">Gestor de Tráfego</div><div class="stat-context">fev/2023 a ago/2023, +30% vendas e -20% CPA</div></div>
+      <div class="stat-card"><div class="stat-value" style="font-size:16px;">Grupo OTG</div><div class="stat-label">SDR mais Gestor de Tráfego</div><div class="stat-context">jan/2021 a dez/2022, 6 lançamentos paralelos com 7 e 8 dígitos</div></div>
     </div>
 
     <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px;">
@@ -876,15 +1050,14 @@
       <span class="badge badge-amber">Hotmart (convidado)</span>
       <span class="badge badge-violet">Ronaldinho Gaúcho</span>
       <span class="badge badge-cyan">Lucas Tylty</span>
-      <span class="badge badge-green">100k+ YouTube</span>
-      <span class="badge badge-red">+7Mi views</span>
+      <span class="badge badge-green">ROAS 140 (pico)</span>
     </div>
 
     <!-- ========== CTA WHATSAPP ========== -->
     <div class="cta-section scroll-bottom">
       <img src="https://luizxhgomes.github.io/brand-hub/assets/logo/logo-mark.png" alt="LH" style="height:40px;margin-bottom:16px;opacity:0.8;">
-      <h2>Vamos Conversar?</h2>
-      <p>Se você quer entender como Revenue Operations + IA pode transformar a operação do seu negócio, eu quero ouvir seu desafio. Não vendo promessas. Mostro o que já construí.</p>
+      <h2>Vamos conversar?</h2>
+      <p>A receita que sua empresa precisa provavelmente já está lá dentro, travada em gargalos entre áreas. Se você quer entender como um sistema nervoso inteligente destrava esse resultado, eu quero ouvir seu desafio.</p>
       <a href="https://wa.me/5511970204289?text=Oi%20Luiz!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar." class="cta-whatsapp" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Falar no WhatsApp
@@ -966,21 +1139,6 @@
   // Run after animations.js has had time to set up
   setTimeout(observeAll, 200);
 })();
-</script>
-
-</div><!-- /.main -->
-
-<script>
-function toggleMenu() {
-  document.querySelector('.sidebar').classList.toggle('active');
-  document.querySelector('.menu-toggle').classList.toggle('active');
-  document.querySelector('.sidebar-overlay').classList.toggle('active');
-}
-document.querySelectorAll('.sidebar-nav a').forEach(function(a) {
-  a.addEventListener('click', function() {
-    if (window.innerWidth <= 768) toggleMenu();
-  });
-});
 </script>
 
 </body>

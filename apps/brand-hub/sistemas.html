@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistemas em Produção, Brand Hub</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .system-card {
+      background: var(--gradient-card);
+      border: 1px solid rgba(37,99,235,0.18);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .system-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(6,182,212,0.5);
+      box-shadow: var(--shadow-glow-blue);
+    }
+    .system-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gradient-accent);
+    }
+    .system-num {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--brand-cyan);
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .system-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .system-category {
+      font-size: 13px;
+      color: var(--gray-400);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .system-description {
+      font-size: 14px;
+      color: var(--gray-200);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .system-stack {
+      font-size: 12px;
+      color: var(--brand-amber-light);
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(245,158,11,0.08);
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+    .system-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px solid rgba(148,163,184,0.1);
+    }
+    .system-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--brand-green);
+      letter-spacing: 1px;
+    }
+    .system-status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--brand-green);
+      box-shadow: 0 0 8px var(--brand-green);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .system-link {
+      font-size: 12px;
+      color: var(--brand-cyan);
+      font-weight: 600;
+    }
+    .highlight-card {
+      grid-column: span 2;
+      border-color: rgba(124,58,237,0.3);
+    }
+    .highlight-card::before {
+      background: linear-gradient(135deg, #7C3AED 0%, #06B6D4 100%);
+      height: 4px;
+    }
+    .highlight-card .system-num {
+      color: var(--brand-violet);
+    }
+    @media (max-width: 900px) {
+      .highlight-card { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="sidebar">
+  <div class="sidebar-logo">
+    <h1>LUIZ HENRIQUE</h1>
+    <p>Arquiteto de Operações | RevOps | TechLead</p>
+  </div>
+  <div class="sidebar-nav">
+    <div class="sidebar-section-label">BRAND HUB</div>
+    <a href="index.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Dashboard</a>
+    <a href="dna.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0113 0"/></svg>DNA & Persona</a>
+    <a href="estrategia.html"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>Estratégia de Marca</a>
+    <a href="sistemas.html" class="active"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Sistemas em Produção</a>
+    <a href="arsenal.html"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Arsenal de Conteúdos</a>
+    <a href="calendario.html"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Calendário Editorial</a>
+    <a href="gerador.html"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Sistema Gerador</a>
+    <div class="sidebar-section-label">CARREIRA</div>
+    <a href="portfolio.html"><svg viewBox="0 0 24 24"><path d="M20 7h-4V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v3H4a2 2 0 00-2 2v11a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2zM10 4h4v3h-4V4z"/></svg>Portfólio & Currículo</a>
+    <div class="sidebar-section-label">RECURSOS</div>
+    <a href="brandbook.html" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 6v6l4 2"/></svg>Brandbook Visual</a>
+  </div>
+  <div class="sidebar-footer">@luizhenriquexpro &middot; Brand Hub v6.0</div>
+</nav>
+
+<div class="main">
+  <div class="hero-orbs" aria-hidden="true">
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+    <div class="hero-glow hero-glow-3"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-scan"></div>
+  </div>
+  <div class="page-header">
+    <div class="breadcrumb">BRAND HUB &rsaquo; SISTEMAS EM PRODUÇÃO</div>
+    <h1>7 Sistemas Autorais em Produção</h1>
+    <p class="subtitle">A prova tangível da Fábrica de Sistemas. Cada um construído sem time de engenharia tradicional, via vibe coding mais Claude Code. 1 sistema interno na V4 Bilinski e 6 autorais externos.</p>
+  </div>
+
+  <div class="content">
+
+    <!-- HERO STATS -->
+    <div class="grid-4" style="margin-bottom:40px;">
+      <div class="stat-card">
+        <div class="stat-value">7</div>
+        <div class="stat-label">Sistemas em produção</div>
+        <div class="stat-context">Total do portfólio autoral entre 2025 e 2026, contando 1 interno na V4 Bilinski e 6 externos</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">1</div>
+        <div class="stat-label">Sistema interno V4</div>
+        <div class="stat-context">Núcleo de Inteligência de Dados da V4 Bilinski, em produção há 8 meses orquestrando 7 áreas</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">6</div>
+        <div class="stat-label">Sistemas autorais externos</div>
+        <div class="stat-context">OUTBILI, BilinskiZap, Keyra, Social Media AI, Carousel AI e InsightMeet AI construídos em paralelo</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">0</div>
+        <div class="stat-label">Times de engenharia envolvidos</div>
+        <div class="stat-context">Construção solo via Fábrica de Sistemas com vibe coding mais Claude Code, sem dev tradicional</div>
+      </div>
+    </div>
+
+    <!-- SISTEMA 01, DESTAQUE -->
+    <div class="section-divider">
+      <h2>Sistema Interno V4 Bilinski</h2>
+      <p>O padrão arquitetural Núcleo de Inteligência aplicado a uma unidade inteira. Em produção há 8 meses.</p>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:40px;">
+      <div class="system-card highlight-card">
+        <div class="system-num">01 &middot; INTERNO</div>
+        <div class="system-name">Núcleo de Inteligência de Dados V4 Bilinski</div>
+        <div class="system-category">Sistema interno de orquestração operacional</div>
+        <p class="system-description">
+          Sistema que conecta 7 áreas da unidade V4 Bilinski (marketing, comunicação, comercial, CS/CX, operação, financeiro, RH) em fluxo único de dados. Agents de IA especializados operam sobre camada consolidada, orquestrador central coordena decisões. Operacionaliza o padrão Núcleo de Inteligência. Papel: arquiteto da evolução e gestor da criação, não idealizador único.
+        </p>
+        <div class="system-stack">Stack: agents de IA orquestrados &middot; camada unificada de dados &middot; integrações multi-área &middot; orquestrador central</div>
+        <div class="system-footer">
+          <span class="system-status">EM PRODUÇÃO HÁ 8 MESES</span>
+          <span class="system-link">Interno V4 Bilinski &amp; Co</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SISTEMAS AUTORAIS EXTERNOS -->
+    <div class="section-divider">
+      <h2>6 Sistemas Autorais Externos</h2>
+      <p>Construídos em paralelo, sem time de engenharia tradicional. Cada um prova a velocidade da Fábrica de Sistemas.</p>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:24px;">
+
+      <!-- OUTBILI -->
+      <div class="system-card">
+        <div class="system-num">02</div>
+        <div class="system-name">OUTBILI</div>
+        <div class="system-category">Inteligência comercial e prospecção B2B</div>
+        <p class="system-description">
+          Prospecção B2B serverless com enriquecimento automático em cascata (CNPJa para dados cadastrais e sócios, Assertiva para WhatsApp confirmado do decisor). Gates obrigatórios de decisor mais telefone, pipeline Kanban com 7 estágios, campanhas WhatsApp integradas via BilinskiZap.
+        </p>
+        <div class="system-stack">Stack: React 19 + TypeScript + Vite &middot; Cloudflare Workers (proxy OAuth2) &middot; Airtable &middot; CNPJa API &middot; Assertiva API &middot; BilinskiZap API</div>
+        <div class="system-footer">
+          <span class="system-status">EM PRODUÇÃO</span>
+          <span class="system-link">v4bilinski.github.io/outbili</span>
+        </div>
+      </div>
+
+      <!-- BILINSKIZAP -->
+      <div class="system-card">
+        <div class="system-num">03</div>
+        <div class="system-name">BilinskiZap</div>
+        <div class="system-category">Automação WhatsApp com IA integrada</div>
+        <p class="system-description">
+          Plataforma completa de automação WhatsApp. Campanhas em massa com templates Meta aprovados, inbox em tempo real no navegador, agents de IA que lembram do histórico de cada cliente, gestão de contatos via CSV com campos personalizados, lead forms embeddáveis.
+        </p>
+        <div class="system-stack">Stack: API Oficial Meta &middot; PWA &middot; Agents com memória persistente &middot; Templates sincronizados Meta</div>
+        <div class="system-footer">
+          <span class="system-status">EM PRODUÇÃO</span>
+          <span class="system-link">Produto V4 Bilinski</span>
+        </div>
+      </div>
+
+      <!-- KEYRA -->
+      <div class="system-card">
+        <div class="system-num">04</div>
+        <div class="system-name">Keyra</div>
+        <div class="system-category">Financeiro operacional para estética</div>
+        <p class="system-description">
+          Primeiro financeiro operacional do setor de estética. Conecta agenda, serviços, comanda, transação e DRE automaticamente, eliminando alimentação manual pós-faturamento típica de ERPs. UX inegociável: números absolutos, comparativos textuais, tela única. Proposição: key para acelerar receita.
+        </p>
+        <div class="system-stack">Stack: Next.js 16 (App Router + Server Actions) &middot; Supabase (PostgreSQL com RLS multi-tenant) &middot; Vercel &middot; Inngest &middot; Stripe &middot; Asaas</div>
+        <div class="system-footer">
+          <span class="system-status">EM PRODUÇÃO</span>
+          <span class="system-link">usekeyra.vercel.app</span>
+        </div>
+      </div>
+
+      <!-- SOCIAL MEDIA AI -->
+      <div class="system-card">
+        <div class="system-num">05</div>
+        <div class="system-name">Social Media AI</div>
+        <div class="system-category">Geração de conteúdo baseada em virais</div>
+        <p class="system-description">
+          Coleta Reels recentes de concorrentes, filtra os top virais por visualizações, analisa cada vídeo com Gemini (Conceito + Gancho + Retenção + Recompensa + Roteiro), envia análise mais contexto da marca para Claude gerar novos conceitos adaptados. Pipeline de 7 fases coordenadas.
+        </p>
+        <div class="system-stack">Stack: Next.js 16 + TypeScript + Tailwind + shadcn/ui &middot; Apify (coleta Instagram) &middot; Google Gemini 2.0 Flash (análise multimodal) &middot; Claude Sonnet (geração)</div>
+        <div class="system-footer">
+          <span class="system-status">EM PRODUÇÃO</span>
+          <span class="system-link">Autoral</span>
+        </div>
+      </div>
+
+      <!-- CAROUSEL AI -->
+      <div class="system-card">
+        <div class="system-num">06</div>
+        <div class="system-name">Carousel AI</div>
+        <div class="system-category">Gerador de carrosséis Instagram com IA</div>
+        <p class="system-description">
+          Cria carrosséis multi-slide com texto e imagens geradas por IA. Templates estilizados (Twitter, Storyteller), customização de tema, drag-and-drop de slides, exportação direta para PNG. Integração Apify para referências visuais.
+        </p>
+        <div class="system-stack">Stack: React 19 + TypeScript &middot; Vite 6 &middot; Tailwind 3 &middot; shadcn/ui &middot; Google Gemini (texto e imagem) &middot; html-to-image &middot; dnd-kit &middot; Apify REST API</div>
+        <div class="system-footer">
+          <span class="system-status">EM PRODUÇÃO</span>
+          <span class="system-link">Autoral</span>
+        </div>
+      </div>
+
+      <!-- INSIGHTMEET AI -->
+      <div class="system-card">
+        <div class="system-num">07</div>
+        <div class="system-name">InsightMeet AI</div>
+        <div class="system-category">Análise de linguagem não-verbal em reuniões</div>
+        <p class="system-description">
+          Analisa micro-expressões e gesticulações em reuniões de videoconferência para fornecer insights sobre dinâmica em tempo real. Identifica emoções (neutral, curiosidade, foco, skepticism, agreement, confusion, surprise), gestos, engajamento, atenção, postura, voz e dicção. Gera relatório para ata automaticamente. Vai além de transcrição: mapeia comunicação velada.
+        </p>
+        <div class="system-stack">Stack: GCP Cloud Run &middot; análise comportamental em tempo real &middot; integração Google Meet &middot; pipeline multimodal</div>
+        <div class="system-footer">
+          <span class="system-status">EM PRODUÇÃO</span>
+          <span class="system-link">insightmeet-ai-721960084105.us-central1.run.app</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FRAMEWORKS APLICADOS -->
+    <div class="section-divider" style="margin-top:48px;">
+      <h2>Os 4 Frameworks Aplicados</h2>
+      <p>Cada sistema é consequência direta de um ou mais dos frameworks proprietários.</p>
+    </div>
+
+    <div class="grid-4" style="margin-bottom:32px;">
+      <div class="card">
+        <div class="card-label">MÉTODO PRINCIPAL</div>
+        <h3>Fábrica de Sistemas</h3>
+        <p>Ideia → sistema em produção em dias, não meses. Vibe coding mais Claude Code.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">ORQUESTRAÇÃO</div>
+        <h3>Squad-First</h3>
+        <p>Decomposição em agents especializados por função. Cascata coordenada.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">DIAGNÓSTICO</div>
+        <h3>Realocação Inteligente</h3>
+        <p>Humano x squad. Trabalho repetitivo vira agent, estratégico fica humano.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">ARQUITETURA</div>
+        <h3>Núcleo de Inteligência</h3>
+        <p>Dados unificados. Uma verdade. Agents sobre camada consolidada.</p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="section-divider" style="margin-top:48px;">
+      <h2>Próximos Sistemas</h2>
+      <p>Construção contínua. Fábrica de Sistemas em operação.</p>
+    </div>
+
+    <div class="card" style="text-align:center;padding:32px;">
+      <p style="color:var(--gray-200);font-size:15px;line-height:1.8;margin-bottom:8px;">
+        Sistema #8 em definição. Expansão do Núcleo de Inteligência V4 em curso. Turma piloto de formação de orquestradores em planejamento.
+      </p>
+      <p style="color:var(--brand-cyan);font-weight:600;font-size:14px;margin-top:12px;">
+        Humanos orquestram. Agents executam. Essa é a próxima arquitetura operacional.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio Profissional | Luiz Henrique Martins da Silva</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* === BRAND TOKENS (design-system.md) === */
+    :root {
+      --bg-void: #050508;
+      --bg-base: #0A0A0F;
+      --bg-surface: #111117;
+      --bg-elevated: #1A1A24;
+      --bg-border: #252535;
+      --blue-500: #3B82F6;
+      --blue-400: #60A5FA;
+      --blue-600: #2563EB;
+      --blue-glow: rgba(59, 130, 246, 0.15);
+      --blue-border: rgba(59, 130, 246, 0.3);
+      --orange-500: #F97316;
+      --orange-glow: rgba(249, 115, 22, 0.15);
+      --green-500: #22C55E;
+      --green-400: #4ADE80;
+      --green-glow: rgba(34, 197, 94, 0.15);
+      --text-primary: #F8FAFC;
+      --text-secondary: #CBD5E1;
+      --text-muted: #64748B;
+      --gradient-brand: linear-gradient(135deg, #1E3A8A 0%, #2563EB 60%, #F97316 100%);
+      --font-heading: 'Space Grotesk', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    /* === RESET & BASE === */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-base);
+      color: var(--text-primary);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* === PRINT STYLES === */
+    @media print {
+      @page {
+        size: A4;
+        margin: 12mm 14mm;
+      }
+      body {
+        background: #fff;
+        color: #0F172A;
+        font-size: 9.5pt;
+        line-height: 1.5;
+      }
+      .page-break { page-break-before: always; }
+      .no-print { display: none !important; }
+      .hero { background: #fff !important; border-bottom: 2px solid #2563EB; padding: 0 0 16pt; }
+      .hero h1 { color: #0F172A; font-size: 22pt; }
+      .hero h1 .accent { color: #2563EB; -webkit-text-fill-color: #2563EB; background: none; }
+      .hero-sub { color: #475569; }
+      .stat-val { color: #2563EB; -webkit-text-fill-color: #2563EB; background: none; font-size: 18pt; }
+      .stat-label { color: #64748B; }
+      .section-title { color: #0F172A; border-color: #2563EB; }
+      .section-sub { color: #475569; }
+      .card { background: #fff; border: 1px solid #E2E8F0; box-shadow: none; }
+      .card-label { color: #2563EB; }
+      .card p, .card li, .case-text { color: #334155; }
+      .metric-badge { background: #EFF6FF; color: #2563EB; border: 1px solid #BFDBFE; }
+      .roas-bar { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .timeline-dot { background: #2563EB !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .timeline-line { background: #E2E8F0 !important; }
+      .skill-bar-fill { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      a { color: #2563EB; text-decoration: none; }
+      .badge { border: 1px solid #CBD5E1; background: #F8FAFC; color: #334155; }
+      .contact-bar { background: #EFF6FF; border: 1px solid #BFDBFE; }
+      .contact-bar a { color: #2563EB; }
+      .quote-block { border-color: #2563EB; background: #EFF6FF; }
+      .quote-block p { color: #0F172A; }
+    }
+
+    /* === CONTAINER === */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 32px;
+    }
+
+    @media print {
+      .container { max-width: 100%; padding: 0; }
+    }
+
+    /* === HERO === */
+    .hero {
+      padding: 48px 0 32px;
+      border-bottom: 1px solid var(--bg-border);
+      margin-bottom: 32px;
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 100px;
+      background: var(--blue-glow);
+      color: var(--blue-400);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 .accent {
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-top: 12px;
+      max-width: 620px;
+      line-height: 1.7;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .stat-val {
+      font-family: var(--font-heading);
+      font-size: 28px;
+      font-weight: 700;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-top: 2px;
+    }
+
+    /* === CONTACT BAR === */
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding: 14px 20px;
+      background: var(--bg-surface);
+      border: 1px solid var(--bg-border);
+      border-radius: 10px;
+      margin-bottom: 32px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .contact-bar a {
+      color: var(--blue-400);
+      text-decoration: none;
+    }
+
+    /* === SECTIONS === */
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--blue-600);
+      display: inline-block;
+    }
+
+    .section-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      margin-top: 4px;
+    }
+
+    .section { margin-bottom: 36px; }
+
+    /* === CARDS === */
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--bg-border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .card-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--blue-400);
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* === ROAS CHART === */
+    .roas-chart {
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+      padding: 20px;
+      background: var(--bg-surface);
+      border: 1px solid var(--bg-border);
+      border-radius: 12px;
+      margin-bottom: 24px;
+    }
+
+    .roas-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .roas-val {
+      font-family: var(--font-mono);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .roas-bar {
+      width: 100%;
+      border-radius: 4px 4px 0 0;
+      background: linear-gradient(180deg, var(--blue-500), var(--blue-600));
+    }
+
+    .roas-label {
+      font-size: 10px;
+      color: var(--text-muted);
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1.3;
+    }
+
+    /* === TIMELINE === */
+    .timeline-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .timeline-left {
+      width: 120px;
+      flex-shrink: 0;
+      text-align: right;
+      padding-top: 2px;
+    }
+
+    .timeline-period {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .timeline-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 16px;
+      flex-shrink: 0;
+    }
+
+    .timeline-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--blue-500);
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .timeline-line {
+      width: 2px;
+      flex: 1;
+      background: var(--bg-border);
+      margin-top: 4px;
+    }
+
+    .timeline-right { flex: 1; }
+
+    .timeline-title {
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .timeline-company {
+      font-size: 12px;
+      color: var(--blue-400);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .timeline-text {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* === METRICS === */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .metric-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--bg-border);
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .metric-val {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 700;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .metric-context {
+      font-size: 9px;
+      color: var(--text-secondary);
+      line-height: 1.4;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(148,163,184,0.15);
+    }
+    .stat-context {
+      font-size: 10px;
+      color: var(--text-secondary);
+      line-height: 1.4;
+      margin-top: 4px;
+      max-width: 160px;
+    }
+    .metric-label {
+      font-size: 10px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 4px;
+    }
+
+    @media print {
+      .metrics-grid { grid-template-columns: repeat(4, 1fr); }
+      .metric-val { color: #2563EB; -webkit-text-fill-color: #2563EB; background: none; font-size: 16pt; }
+    }
+
+    /* === CASES === */
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .case-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--bg-border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .case-title {
+      font-family: var(--font-heading);
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .case-role {
+      font-size: 11px;
+      color: var(--blue-400);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .case-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    .case-text {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .metric-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--green-glow);
+      color: var(--green-400);
+      margin-top: 4px;
+      margin-right: 4px;
+    }
+
+    /* === SKILLS === */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .skill-cat-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--blue-400);
+      margin-bottom: 10px;
+    }
+
+    .skill-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .skill-name {
+      font-size: 12px;
+      color: var(--text-secondary);
+      width: 110px;
+      flex-shrink: 0;
+    }
+
+    .skill-bar {
+      flex: 1;
+      height: 6px;
+      background: var(--bg-elevated);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .skill-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: linear-gradient(90deg, var(--blue-600), var(--blue-400));
+    }
+
+    .skill-val {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      width: 28px;
+      text-align: right;
+    }
+
+    /* === BADGES === */
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--blue-glow);
+      color: var(--blue-400);
+      margin: 3px 2px;
+    }
+
+    .badge-green { background: var(--green-glow); color: var(--green-400); }
+    .badge-orange { background: var(--orange-glow); color: var(--orange-500); }
+
+    /* === QUOTE === */
+    .quote-block {
+      border-left: 3px solid var(--blue-500);
+      padding: 16px 20px;
+      margin: 20px 0;
+      background: var(--blue-glow);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-block p {
+      font-family: var(--font-heading);
+      font-size: 15px;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    .quote-block cite {
+      display: block;
+      font-size: 12px;
+      color: var(--blue-400);
+      margin-top: 8px;
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    /* === FOOTER === */
+    .footer {
+      text-align: center;
+      padding: 24px 0;
+      border-top: 1px solid var(--bg-border);
+      margin-top: 24px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    @media print {
+      .footer { border-color: #E2E8F0; }
+    }
+
+    /* === RESPONSIVE (screen) === */
+    @media screen and (max-width: 768px) {
+      .container { padding: 24px 16px; }
+      .hero h1 { font-size: 28px; }
+      .hero-stats { gap: 20px; }
+      .stat-val { font-size: 22px; }
+      .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+      .cases-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .timeline-left { width: 80px; }
+      .contact-bar { gap: 12px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ========== HERO ========== -->
+  <div class="hero">
+    <div class="hero-badge">Aberto a oportunidades</div>
+    <h1>Luiz Henrique<br><span class="accent">Martech, RevOps & IA</span></h1>
+    <p class="hero-sub">Arquiteto de Operações (RevOps mais TechLead) com +6 anos de trajetória e 7 sistemas autorais em produção. Arquiteta a evolução do Núcleo de Inteligência de Dados da V4 Bilinski (7 áreas orquestradas por agents, 8 meses em produção) e construiu 6 sistemas externos via Fábrica de Sistemas com vibe coding mais Claude Code.</p>
+
+    <div class="hero-stats">
+      <div>
+        <div class="stat-val">R$ 6Mi+</div>
+        <div class="stat-label">Em mídia paga gerenciada</div>
+        <div class="stat-context">Somatório de 2021 a 2025 em 8 empresas da jornada de performance</div>
+      </div>
+      <div>
+        <div class="stat-val">ROAS 140</div>
+        <div class="stat-label">Retorno de pico</div>
+        <div class="stat-context">Base Viral, 2025, consultorias high-ticket com meta superada em +1.000%</div>
+      </div>
+      <div>
+        <div class="stat-val">+2.500</div>
+        <div class="stat-label">MQLs gerados</div>
+        <div class="stat-context">Base Viral em 9 meses, com 70% de taxa de conversão para oportunidades</div>
+      </div>
+      <div>
+        <div class="stat-val">7 áreas</div>
+        <div class="stat-label">Orquestradas no Núcleo V4</div>
+        <div class="stat-context">Marketing, Comunicação, Comercial, CS/CX, Operação, Financeiro e RH em produção há 8 meses</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CONTATO ========== -->
+  <div class="contact-bar">
+    <span>Sao Paulo, SP</span>
+    <span>(11) 97020-4289</span>
+    <a href="mailto:luizhenriquexpro@email.com">luizhenriquexpro@email.com</a>
+    <a href="https://linkedin.com/in/luizhenriquexpro">linkedin.com/in/luizhenriquexpro</a>
+  </div>
+
+  <!-- ========== RESUMO ========== -->
+  <div class="section">
+    <div class="section-title">Resumo profissional</div>
+    <div class="section-sub">Coordenador de Revenue Operations e líder TECH & IA na V4 Bilinski & Co</div>
+    <div class="card">
+      <p>Profissional sênior com mais de 6 anos de experiência em Growth Marketing, Revenue Operations e Business Intelligence. Responsável por integrar 7 áreas operacionais (Marketing, Comunicação, Comercial, CS/CX, Operação, Financeiro e RH) em um único fluxo de dados orientado a resultados. Experiência comprovada em gestão de mais de R$ 6 milhões em mídia paga, com ROAS de pico de 140 em vendas high ticket e múltiplos lançamentos de 7 e 8 dígitos. Atualmente aplica Teoria das Restrições combinada com agentes de IA para eliminação sistemática de gargalos e automação de processos operacionais.</p>
+    </div>
+  </div>
+
+  <!-- ========== PROGRESSÃO ROAS ========== -->
+  <div class="section">
+    <div class="section-title">A curva que ninguém mostra</div>
+    <div class="section-sub">De otimizar campanhas a otimizar sistemas. A evolução do ROAS conta a história.</div>
+
+    <div class="roas-chart">
+      <div class="roas-item">
+        <div class="roas-val">3,3</div>
+        <div class="roas-bar" style="height:16px; opacity:0.5;"></div>
+        <div class="roas-label">2021<br>Campanhas</div>
+      </div>
+      <div class="roas-item">
+        <div class="roas-val">16,8</div>
+        <div class="roas-bar" style="height:48px; opacity:0.65;"></div>
+        <div class="roas-label">2023<br>Funis</div>
+      </div>
+      <div class="roas-item">
+        <div class="roas-val">46</div>
+        <div class="roas-bar" style="height:100px; opacity:0.8;"></div>
+        <div class="roas-label">2024<br>Equipes</div>
+      </div>
+      <div class="roas-item">
+        <div class="roas-val">140</div>
+        <div class="roas-bar" style="height:180px; background: var(--gradient-brand);"></div>
+        <div class="roas-label">2025<br>Sistemas</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== NÚMEROS ========== -->
+  <div class="section">
+    <div class="section-title">Números que falam</div>
+    <div class="section-sub">Resultados mensuráveis ao longo de +6 anos de carreira</div>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-val">R$ 6Mi+</div>
+        <div class="metric-label">Mídia paga gerenciada</div>
+        <div class="metric-context">Somatório 2021 a 2025 em 8 empresas (Grupo OTG, R10, Tylty, Contab. Facilitada, Grupo 220, V4 Nunes, Laatus, Base Viral)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">ROAS 140</div>
+        <div class="metric-label">Pico high-ticket</div>
+        <div class="metric-context">Base Viral em 2025 com consultorias premium, operação 100% data-driven</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">+2.500</div>
+        <div class="metric-label">MQLs qualificados</div>
+        <div class="metric-context">Base Viral em 9 meses, com meta superada em +1.000%</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">70%</div>
+        <div class="metric-label">Taxa de oportunidades</div>
+        <div class="metric-context">Conversão de MQL para SQL na operação da Base Viral, 2025</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">+217%</div>
+        <div class="metric-label">Crescimento de leads</div>
+        <div class="metric-context">Grupo 220 como Head de Tráfego em 2024, com ROAS médio de 46</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">+20.000</div>
+        <div class="metric-label">Leads qualificados</div>
+        <div class="metric-context">Laatus como Head de Marketing em 6 meses, com ROAS 8,2 e CPL reduzido em 32%</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">7</div>
+        <div class="metric-label">Sistemas em produção</div>
+        <div class="metric-context">Portfólio autoral entre 2025 e 2026: Núcleo V4 mais 6 sistemas externos</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">10</div>
+        <div class="metric-label">Posições em 5 anos</div>
+        <div class="metric-context">Progressão de SDR a Arquiteto de Operações entre 2021 e 2025, saltando de operacional a estratégico</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== JORNADA ========== -->
+  <div class="section page-break">
+    <div class="section-title">Jornada profissional</div>
+    <div class="section-sub">Cada posição construiu a próxima. De SDR a Arquiteto de Operações | RevOps | TechLead.</div>
+
+    <div class="timeline-item">
+      <div class="timeline-left"><div class="timeline-period">set/2025<br>atual</div></div>
+      <div class="timeline-center"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+      <div class="timeline-right">
+        <div class="timeline-title">Coordenador Sênior Martech | Arquiteto de Operações | RevOps | TechLead</div>
+        <div class="timeline-company">V4 Bilinski &amp; Co | São Paulo, SP</div>
+        <div class="timeline-text">Arquiteta e mantém em evolução o Núcleo de Inteligência de Dados da unidade, sistema orquestrado por agents de IA que conecta 7 áreas (marketing, comunicação, comercial, CS/CX, operação, financeiro, RH) em fluxo único de dados (em produção há 8 meses; papel de arquiteto da evolução e gestor da criação). Em paralelo, construiu 6 sistemas autorais externos via Fábrica de Sistemas com vibe coding mais Claude Code: OUTBILI, BilinskiZap, Keyra, Social Media AI, Carousel AI e InsightMeet AI. Aplica 4 frameworks proprietários: Fábrica de Sistemas, Squad-First, Realocação Inteligente e Núcleo de Inteligência.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left"><div class="timeline-period">dez/2024<br>set/2025</div></div>
+      <div class="timeline-center"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+      <div class="timeline-right">
+        <div class="timeline-title">Coordenador de Performance</div>
+        <div class="timeline-company">Base Viral | São Paulo, SP (remoto)</div>
+        <div class="timeline-text">ROAS 140 em vendas high ticket. +2.500 MQLs com 70% de conversão. Meta superada em +1.000%. Operação 100% data-driven.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left"><div class="timeline-period">jul/2024<br>jan/2025</div></div>
+      <div class="timeline-center"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+      <div class="timeline-right">
+        <div class="timeline-title">Head de Marketing</div>
+        <div class="timeline-company">Laatus | São Paulo, SP</div>
+        <div class="timeline-text">+20.000 leads em 6 meses. ROAS 8,2. -32% CPL. Equipe multidisciplinar. 7% conversão para Inside Sales.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left"><div class="timeline-period">abr/2024<br>jul/2024</div></div>
+      <div class="timeline-center"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+      <div class="timeline-right">
+        <div class="timeline-title">Senior Account Manager</div>
+        <div class="timeline-company">V4 Nunes&Co | São Paulo, SP</div>
+        <div class="timeline-text">+81% ROI em B2B. -58% tempo de execução. CRM integrado. Aqui nasceu a competência em identificar gargalos.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left"><div class="timeline-period">jan/2024<br>abr/2024</div></div>
+      <div class="timeline-center"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+      <div class="timeline-right">
+        <div class="timeline-title">Head de Tráfego</div>
+        <div class="timeline-company">Grupo 220 | Rio de Janeiro, RJ</div>
+        <div class="timeline-text">ROAS 46. +217% geração de leads. Dashboards em tempo real. Sinergia entre criação, copy e produto.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left"><div class="timeline-period">ago/2023<br>jan/2024</div></div>
+      <div class="timeline-center"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+      <div class="timeline-right">
+        <div class="timeline-title">Gestor de Tráfego Sênior</div>
+        <div class="timeline-company">Contabilidade Facilitada | Rio de Janeiro, RJ</div>
+        <div class="timeline-text">ROAS 16,8. -45% CPL. +26% faturamento. Lançamentos de múltiplos 7 dígitos.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left"><div class="timeline-period">fev/2023<br>ago/2023</div></div>
+      <div class="timeline-center"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+      <div class="timeline-right">
+        <div class="timeline-title">Gestor de Tráfego Pago</div>
+        <div class="timeline-company">Tylty Company | Rio de Janeiro, RJ</div>
+        <div class="timeline-text">+30% vendas. -20% CPA. Integração tráfego + vendas.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left"><div class="timeline-period">jan/2022<br>fev/2023</div></div>
+      <div class="timeline-center"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+      <div class="timeline-right">
+        <div class="timeline-title">Gestor de Tráfego Pago</div>
+        <div class="timeline-company">R10 Score | Rio de Janeiro, RJ</div>
+        <div class="timeline-text">+45% taxa de conversão. Diversificação de fontes de tráfego.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left"><div class="timeline-period">jan/2021<br>jan/2022</div></div>
+      <div class="timeline-center"><div class="timeline-dot" style="background: var(--orange-500);"></div></div>
+      <div class="timeline-right">
+        <div class="timeline-title">Gestor de Tráfego Pago / SDR</div>
+        <div class="timeline-company">Grupo OTG | Rio de Janeiro, RJ</div>
+        <div class="timeline-text">6 lançamentos simultâneos. Múltiplos 7-8 dígitos. ROAS 3,3. +23% LTV. Lançamento com Ronaldinho Gaúcho.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== QUOTE ========== -->
+  <div class="quote-block">
+    <p>"A maioria das empresas não tem problema de venda. Tem problema de estrutura. A receita já está lá dentro, travada em gargalos que ninguém enxerga. Eu construo o sistema que destrava."</p>
+    <cite>Luiz Henrique Martins da Silva</cite>
+  </div>
+
+  <!-- ========== CASES ========== -->
+  <div class="section">
+    <div class="section-title">Cases e projetos</div>
+    <div class="section-sub">Resultados reais em empresas reais</div>
+
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-title">V4 Bilinski &amp; Co: Núcleo de Inteligência de Dados</div>
+        <div class="case-role">Coordenador Sênior Martech | Arquiteto de Operações | set/2025 a atual</div>
+        <div class="case-label" style="color: #EF4444;">Desafio</div>
+        <div class="case-text">7 áreas da unidade operando em silos, dados isolados, decisão dependente de reuniões de alinhamento.</div>
+        <div class="case-label" style="color: var(--blue-400);">Solução</div>
+        <div class="case-text">Arquitetura de camada unificada com agents de IA especializados por área. Orquestrador central coordena decisões. Padrão Núcleo de Inteligência aplicado em produção há 8 meses.</div>
+        <div style="margin-top:10px;">
+          <span class="metric-badge">7 áreas orquestradas</span>
+          <span class="metric-badge">8 meses em produção</span>
+          <span class="metric-badge">Agents especializados</span>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-title">Base Viral: performance system</div>
+        <div class="case-role">Coord. Performance | dez/2024 - set/2025</div>
+        <div class="case-label" style="color: #EF4444;">Desafio</div>
+        <div class="case-text">Transformar investimento em mídia em previsibilidade de crescimento para consultorias premium.</div>
+        <div class="case-label" style="color: var(--blue-400);">Solução</div>
+        <div class="case-text">Operação 100% data-driven com rastreamento completo do funil e alinhamento marketing-vendas.</div>
+        <div style="margin-top:10px;">
+          <span class="metric-badge">ROAS 140</span>
+          <span class="metric-badge">+2.500 MQLs</span>
+          <span class="metric-badge">70% conversão</span>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-title">Laatus: escala de base</div>
+        <div class="case-role">Head de Marketing | jul/2024 - jan/2025</div>
+        <div class="case-label" style="color: #EF4444;">Desafio</div>
+        <div class="case-text">Escalar base de leads para lançamentos com equipe multidisciplinar.</div>
+        <div class="case-label" style="color: var(--blue-400);">Solução</div>
+        <div class="case-text">Jornadas de compra completas, novos funis, Inside Sales integrado.</div>
+        <div style="margin-top:10px;">
+          <span class="metric-badge">+20.000 leads</span>
+          <span class="metric-badge">ROAS 8,2</span>
+          <span class="metric-badge">-32% CPL</span>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-title">Grupo OTG: lançamentos em escala</div>
+        <div class="case-role">Gestor de Tráfego / SDR | jan/2021 - jan/2022</div>
+        <div class="case-label" style="color: #EF4444;">Desafio</div>
+        <div class="case-text">Gerenciar múltiplos lançamentos simultâneos incluindo Ronaldinho Gaúcho.</div>
+        <div class="case-label" style="color: var(--blue-400);">Solução</div>
+        <div class="case-text">Processos de métricas e relatórios. Estratégia perpétuo + lançamento.</div>
+        <div style="margin-top:10px;">
+          <span class="metric-badge">6 lançamentos</span>
+          <span class="metric-badge">7-8 dígitos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== COMPETÊNCIAS ========== -->
+  <div class="section page-break">
+    <div class="section-title">Competências</div>
+    <div class="section-sub">Hard skills consolidadas e em desenvolvimento</div>
+
+    <div class="skills-grid">
+      <div class="card">
+        <div class="skill-cat-title">Growth & performance</div>
+        <div class="skill-row"><div class="skill-name">Meta Ads</div><div class="skill-bar"><div class="skill-bar-fill" style="width:95%"></div></div><div class="skill-val">9.5</div></div>
+        <div class="skill-row"><div class="skill-name">Google Ads</div><div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div><div class="skill-val">9.0</div></div>
+        <div class="skill-row"><div class="skill-name">CRO</div><div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div><div class="skill-val">9.0</div></div>
+        <div class="skill-row"><div class="skill-name">A/B Testing</div><div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div><div class="skill-val">8.5</div></div>
+        <div class="skill-row"><div class="skill-name">Launch Strategy</div><div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div><div class="skill-val">9.0</div></div>
+
+        <div class="skill-cat-title" style="margin-top:20px;">IA & automação</div>
+        <div class="skill-row"><div class="skill-name">AI Integration</div><div class="skill-bar"><div class="skill-bar-fill" style="width:60%; background: linear-gradient(90deg, var(--orange-500), #FB923C);"></div></div><div class="skill-val">6.0</div></div>
+        <div class="skill-row"><div class="skill-name">Agentes de IA</div><div class="skill-bar"><div class="skill-bar-fill" style="width:55%; background: linear-gradient(90deg, var(--orange-500), #FB923C);"></div></div><div class="skill-val">5.5</div></div>
+        <div class="skill-row"><div class="skill-name">n8n / Make</div><div class="skill-bar"><div class="skill-bar-fill" style="width:50%; background: linear-gradient(90deg, var(--orange-500), #FB923C);"></div></div><div class="skill-val">5.0</div></div>
+      </div>
+
+      <div class="card">
+        <div class="skill-cat-title">RevOps & dados</div>
+        <div class="skill-row"><div class="skill-name">RevOps</div><div class="skill-bar"><div class="skill-bar-fill" style="width:95%"></div></div><div class="skill-val">9.5</div></div>
+        <div class="skill-row"><div class="skill-name">BI / Dashboards</div><div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div><div class="skill-val">9.0</div></div>
+        <div class="skill-row"><div class="skill-name">Pipeline Mgmt</div><div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div><div class="skill-val">8.5</div></div>
+        <div class="skill-row"><div class="skill-name">CRM</div><div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div><div class="skill-val">8.5</div></div>
+        <div class="skill-row"><div class="skill-name">TOC</div><div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div><div class="skill-val">8.0</div></div>
+
+        <div class="skill-cat-title" style="margin-top:20px;">Estratégia & gestão</div>
+        <div class="skill-row"><div class="skill-name">Team Leadership</div><div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div><div class="skill-val">8.5</div></div>
+        <div class="skill-row"><div class="skill-name">Strategic Plan.</div><div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div><div class="skill-val">8.5</div></div>
+        <div class="skill-row"><div class="skill-name">Process Optim.</div><div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div><div class="skill-val">9.0</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CERTIFICAÇÕES ========== -->
+  <div class="section">
+    <div class="section-title">Formação e certificações</div>
+    <div class="section-sub">Qualificações técnicas e participações</div>
+
+    <div class="skills-grid">
+      <div class="card">
+        <div class="card-label">Certificações</div>
+        <p style="margin-bottom:6px;"><strong style="color:var(--blue-400);">Google Ads</strong>, certificação oficial Google</p>
+        <p style="margin-bottom:6px;"><strong style="color:var(--blue-400);">Meta Blueprint</strong>, certificação oficial Meta</p>
+        <p style="margin-bottom:6px;"><strong style="color:var(--blue-400);">Business Intelligence</strong>, autodidata (Looker, Power BI, BigQuery)</p>
+        <p><strong style="color:var(--blue-400);">Formação</strong>, ensino médio completo</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Reconhecimentos e idiomas</div>
+        <p style="margin-bottom:6px;"><strong style="color:var(--orange-500);">Google Partners</strong>, convidado oficial</p>
+        <p style="margin-bottom:6px;"><strong style="color:var(--orange-500);">Hotmart</strong>, convidado oficial</p>
+        <p style="margin-bottom:6px;"><strong style="color:var(--orange-500);">YouTube</strong>, Estrategista digital para expert com +100k inscritos</p>
+        <p style="margin-bottom:6px;"><strong style="color:var(--orange-500);">Português</strong>, nativo</p>
+        <p><strong style="color:var(--orange-500);">Inglês</strong>, básico/intermediário</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== ÁREAS ATS ========== -->
+  <div class="section">
+    <div class="section-title">Áreas de atuação</div>
+    <div class="section-sub">Competências mapeadas para recrutadores e sistemas ATS</div>
+
+    <div style="margin-bottom:20px;">
+      <span class="badge">Revenue Operations</span>
+      <span class="badge">Growth Marketing</span>
+      <span class="badge">Performance Marketing</span>
+      <span class="badge">Martech</span>
+      <span class="badge">Business Intelligence</span>
+      <span class="badge">Data-Driven Marketing</span>
+      <span class="badge badge-green">AI Integration</span>
+      <span class="badge badge-green">Marketing Automation</span>
+      <span class="badge badge-green">Prompt Engineering</span>
+      <span class="badge badge-orange">Meta Ads</span>
+      <span class="badge badge-orange">Google Ads</span>
+      <span class="badge badge-orange">Paid Media</span>
+      <span class="badge">Pipeline Management</span>
+      <span class="badge">CRM Integration</span>
+      <span class="badge">CRO</span>
+      <span class="badge">Dashboard Development</span>
+      <span class="badge">Looker</span>
+      <span class="badge">Power BI</span>
+      <span class="badge">BigQuery</span>
+      <span class="badge badge-green">n8n</span>
+      <span class="badge badge-green">Make</span>
+      <span class="badge badge-green">Zapier</span>
+      <span class="badge badge-orange">Team Leadership</span>
+      <span class="badge badge-orange">Process Optimization</span>
+      <span class="badge">TOC</span>
+      <span class="badge">Product Launch</span>
+      <span class="badge">A/B Testing</span>
+      <span class="badge">Lead Generation</span>
+      <span class="badge badge-green">Agentes de IA</span>
+    </div>
+  </div>
+
+  <!-- ========== EMPRESAS ========== -->
+  <div class="section">
+    <div class="section-title">Empresas e parceiros</div>
+    <div class="section-sub">Marcas onde construí resultados</div>
+
+    <div class="metrics-grid">
+      <div class="metric-card"><div class="metric-val" style="font-size:14px;">V4 Bilinski &amp; Co</div><div class="metric-label">Arquiteto de Operações</div><div class="metric-context">set/2025 a atual, Núcleo V4 em produção há 8 meses</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:14px;">Base Viral</div><div class="metric-label">Coord. de Performance</div><div class="metric-context">dez/2024 a set/2025, ROAS 140 e +2.500 MQLs</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:14px;">Laatus</div><div class="metric-label">Head de Marketing</div><div class="metric-context">ago/2024 a jan/2025, +20.000 leads e ROAS 8,2</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:14px;">Grupo 220</div><div class="metric-label">Head de Tráfego</div><div class="metric-context">jan/2024 a abr/2024, ROAS 46 e +217% em leads</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:14px;">Contab. Facilitada</div><div class="metric-label">Gestor Sênior</div><div class="metric-context">ago/2023 a jan/2024, ROAS 16,8 e +26% faturamento</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:14px;">V4 Nunes&amp;Co</div><div class="metric-label">Sr. Account Manager</div><div class="metric-context">abr/2024 a jul/2024, +81% ROI B2B e -58% tempo</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:14px;">Tylty Company</div><div class="metric-label">Gestor de Tráfego</div><div class="metric-context">fev/2023 a ago/2023, +30% vendas e -20% CPA</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:14px;">Grupo OTG</div><div class="metric-label">SDR mais Gestor de Tráfego</div><div class="metric-context">jan/2021 a dez/2022, 6 lançamentos paralelos 7 e 8 dígitos</div></div>
+    </div>
+
+    <div>
+      <span class="badge">Google Partners (convidado)</span>
+      <span class="badge badge-orange">Hotmart (convidado)</span>
+      <span class="badge">Ronaldinho Gaúcho</span>
+      <span class="badge badge-green">ROAS 140 (pico)</span>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <div class="footer">
+    Luiz Henrique Martins da Silva | (11) 97020-4289 | luizhenriquexpro@email.com | linkedin.com/in/luizhenriquexpro
+  </div>
+
+</div>
+
+</body>
+</html>

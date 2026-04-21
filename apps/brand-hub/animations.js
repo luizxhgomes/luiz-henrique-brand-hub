@@ -1,143 +1,91 @@
 /* ===================================================
-   BRAND HUB — Scroll Animations + Lenis Smooth Scroll
-   Referencia: Social Media Machine design system
+   BRAND HUB v6.0 — Scroll Animations
+   Baseado no sistema do BRANDBOOK (IntersectionObserver + Lenis + Parallax)
    =================================================== */
 
 (function() {
   'use strict';
 
-  // --- INTERSECTION OBSERVER (Scroll Animations) ---
-  var observer = new IntersectionObserver(
+  /* ============================================================
+     1. SCROLL REVEAL com IntersectionObserver
+     ============================================================ */
+  var revealObserver = new IntersectionObserver(
     function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
-          // Small delay so the browser paints the initial state first
           requestAnimationFrame(function() {
-            entry.target.classList.add('ativo');
+            entry.target.classList.add('visible');
           });
-          observer.unobserve(entry.target);
+          revealObserver.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.05, rootMargin: '0px 0px -10% 0px' }
+    { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
   );
 
-  function applyAnimation(el, type, delay) {
+  function apply(el, type, index) {
     if (!el) return;
     el.classList.add(type);
-    if (delay) el.style.transitionDelay = delay + 'ms';
-    // Force browser to register the initial state before observing
+    if (typeof index === 'number') {
+      el.style.setProperty('--i', index);
+    }
     void el.offsetHeight;
-    observer.observe(el);
+    revealObserver.observe(el);
   }
 
   function initScrollAnimations() {
-    // --- PAGE HEADER: animate down from top ---
+    // Page header
     var header = document.querySelector('.page-header');
-    if (header) {
-      applyAnimation(header, 'scroll-bottom', 100);
-    }
+    if (header) apply(header, 'reveal');
 
-    // --- SECTION DIVIDERS ---
-    var dividers = document.querySelectorAll('.section-divider');
-    dividers.forEach(function(el) {
-      applyAnimation(el, 'scroll-bottom', 0);
+    // Section dividers
+    document.querySelectorAll('.section-divider').forEach(function(el) {
+      apply(el, 'reveal');
     });
 
-    // --- GRIDS: stagger children ---
-    var grids = document.querySelectorAll('.grid-2, .grid-3, .grid-4');
-    grids.forEach(function(grid) {
-      var children = grid.querySelectorAll('.card, .stat-card, .story-block');
+    // Grids com stagger
+    document.querySelectorAll('.grid-2, .grid-3, .grid-4').forEach(function(grid) {
+      grid.classList.add('stagger-container');
+      var children = grid.querySelectorAll('.card, .stat-card, .story-block, .system-card, .case-card');
       children.forEach(function(child, i) {
-        applyAnimation(child, 'scroll-bottom', i * 120);
+        apply(child, 'reveal', i);
       });
     });
 
-    // --- STANDALONE CARDS (not inside grids) ---
-    var standaloneCards = document.querySelectorAll('.content > .card, .tab-content.active > .card');
-    standaloneCards.forEach(function(el) {
-      if (!el.closest('.grid-2, .grid-3, .grid-4')) {
-        applyAnimation(el, 'scroll-bottom', 0);
-      }
+    // Cards soltos fora de grids
+    document.querySelectorAll('.content > .card').forEach(function(el) {
+      if (!el.closest('.grid-2, .grid-3, .grid-4')) apply(el, 'reveal');
     });
 
-    // --- TIMELINE ITEMS: slide from left ---
-    var timelineItems = document.querySelectorAll('.timeline-item');
-    timelineItems.forEach(function(item, i) {
-      applyAnimation(item, 'scroll-left', i * 150);
+    // Timeline items vêm da esquerda
+    document.querySelectorAll('.timeline-item').forEach(function(item, i) {
+      apply(item, 'reveal-left', i);
     });
 
-    // --- CODE BLOCKS: blur in ---
-    var codeBlocks = document.querySelectorAll('.content > .code-block, .tab-content.active .code-block');
-    codeBlocks.forEach(function(el) {
-      applyAnimation(el, 'blur-in', 0);
+    // Tabelas com scale
+    document.querySelectorAll('.cal-table').forEach(function(el) {
+      apply(el, 'reveal-scale');
     });
 
-    // --- VOICE METERS: slide from right ---
-    var meters = document.querySelectorAll('.voice-meter');
-    meters.forEach(function(meter, i) {
-      applyAnimation(meter, 'scroll-right', i * 100);
+    // Code blocks
+    document.querySelectorAll('.code-block').forEach(function(el) {
+      apply(el, 'reveal');
     });
 
-    // --- TABLES ---
-    var tables = document.querySelectorAll('.cal-table');
-    tables.forEach(function(el) {
-      applyAnimation(el, 'scroll-bottom', 0);
+    // Quote blocks com scale
+    document.querySelectorAll('.quote-block').forEach(function(el) {
+      apply(el, 'reveal-scale');
     });
 
-    // --- TABS BAR ---
-    var tabBars = document.querySelectorAll('.tabs');
-    tabBars.forEach(function(el) {
-      applyAnimation(el, 'blur-in', 0);
-    });
-
-    // --- BADGE GROUPS ---
-    var badgeGroups = document.querySelectorAll('[style*="flex-wrap"]');
-    badgeGroups.forEach(function(el) {
-      if (el.querySelector('.badge')) {
-        applyAnimation(el, 'blur-in', 200);
-      }
-    });
-
-    // --- LEGEND ROWS (calendario) ---
-    var legends = document.querySelectorAll('.content > .grid-4:first-child');
-    legends.forEach(function(el) {
-      applyAnimation(el, 'blur-in', 0);
+    // Tabs bar
+    document.querySelectorAll('.tabs').forEach(function(el) {
+      apply(el, 'reveal');
     });
   }
 
-  // --- LENIS SMOOTH SCROLL (Desktop only) ---
-  function initLenis() {
-    if (window.innerWidth <= 1024) return;
-    if (typeof Lenis === 'undefined') return;
-
-    var lenis = new Lenis({
-      duration: 1.7,
-      easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2
-    });
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-      anchor.addEventListener('click', function(e) {
-        var target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          lenis.scrollTo(target);
-        }
-      });
-    });
-  }
-
-  // --- VOICE METER FILL ANIMATION ---
+  /* ============================================================
+     2. VOICE METER FILL (barras DISC)
+     ============================================================ */
   function initVoiceMeters() {
     var fills = document.querySelectorAll('.voice-meter-fill');
     var meterObserver = new IntersectionObserver(function(entries) {
@@ -145,9 +93,9 @@
         if (entry.isIntersecting) {
           var el = entry.target;
           var targetWidth = el.style.width;
+          if (!targetWidth) return;
           el.style.width = '0%';
           el.style.transition = 'width 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
-          // Force reflow then animate
           void el.offsetHeight;
           requestAnimationFrame(function() {
             el.style.width = targetWidth;
@@ -160,13 +108,111 @@
     fills.forEach(function(fill) { meterObserver.observe(fill); });
   }
 
-  // --- INIT ---
+  /* ============================================================
+     3. PARALLAX ORBS no header (movimento sutil ao scroll)
+     ============================================================ */
+  function initParallaxOrbs() {
+    var orbs = document.querySelectorAll('.hero-glow');
+    if (orbs.length === 0) return;
+
+    var ticking = false;
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          var scrolled = window.scrollY;
+          if (scrolled < window.innerHeight * 1.2) {
+            orbs.forEach(function(orb, i) {
+              var speed = (i + 1) * 0.08;
+              orb.style.transform = 'translate(' + (scrolled * speed * 0.4) + 'px, ' + (scrolled * speed) + 'px)';
+            });
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  /* ============================================================
+     4. SIDEBAR SCROLL EFFECT (aumenta opacidade ao scrollar)
+     ============================================================ */
+  function initSidebarEffect() {
+    var sidebar = document.querySelector('.sidebar');
+    if (!sidebar) return;
+
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 100) {
+        sidebar.style.background = 'linear-gradient(180deg, rgba(0,18,80,0.95) 0%, rgba(0,1,6,0.98) 100%)';
+      } else {
+        sidebar.style.background = 'linear-gradient(180deg, rgba(0,18,80,0.85) 0%, rgba(2,8,23,0.95) 100%)';
+      }
+    }, { passive: true });
+  }
+
+  /* ============================================================
+     5. SMOOTH SCROLL ANCHORS
+     ============================================================ */
+  function initSmoothAnchors() {
+    document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        var href = this.getAttribute('href');
+        if (href === '#' || href === '') return;
+        var target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  }
+
+  /* ============================================================
+     6. LENIS SMOOTH SCROLL (desktop apenas)
+     ============================================================ */
+  function initLenis() {
+    if (window.innerWidth <= 1024) return;
+    if (typeof Lenis === 'undefined') return;
+
+    var lenis = new Lenis({
+      duration: 1.4,
+      easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 2
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        var href = this.getAttribute('href');
+        if (href === '#' || href === '') return;
+        var target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          lenis.scrollTo(target);
+        }
+      });
+    });
+  }
+
+  /* ============================================================
+     INIT
+     ============================================================ */
   function init() {
-    // Wait a tick so the browser has painted the initial layout
     requestAnimationFrame(function() {
       requestAnimationFrame(function() {
         initScrollAnimations();
         initVoiceMeters();
+        initParallaxOrbs();
+        initSidebarEffect();
+        initSmoothAnchors();
         initLenis();
       });
     });

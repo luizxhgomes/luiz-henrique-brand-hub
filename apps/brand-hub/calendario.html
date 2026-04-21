@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calendário Editorial — Brand Hub</title>
+  <title>Calendário Editorial, Brand Hub</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,13 +11,14 @@
 <nav class="sidebar">
   <div class="sidebar-logo">
     <h1>LUIZ HENRIQUE</h1>
-    <p>Arquiteto de Operações Inteligentes</p>
+    <p>Arquiteto de Operações | RevOps | TechLead</p>
   </div>
   <div class="sidebar-nav">
     <div class="sidebar-section-label">BRAND HUB</div>
     <a href="index.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Dashboard</a>
     <a href="dna.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0113 0"/></svg>DNA & Persona</a>
     <a href="estrategia.html"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>Estratégia de Marca</a>
+    <a href="sistemas.html"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Sistemas em Produção</a>
     <a href="arsenal.html"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Arsenal de Conteúdos</a>
     <a href="calendario.html" class="active"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Calendário Editorial</a>
     <a href="gerador.html"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Sistema Gerador</a>
@@ -26,14 +27,21 @@
     <div class="sidebar-section-label">RECURSOS</div>
     <a href="brandbook.html" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 6v6l4 2"/></svg>Brandbook Visual</a>
   </div>
-  <div class="sidebar-footer">@luizhenriquexpro &middot; Brand Hub v1.0</div>
+  <div class="sidebar-footer">@luizhenriquexpro &middot; Brand Hub v6.0</div>
 </nav>
 
 <div class="main">
+  <div class="hero-orbs" aria-hidden="true">
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+    <div class="hero-glow hero-glow-3"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-scan"></div>
+  </div>
   <div class="page-header">
     <div class="breadcrumb">BRAND HUB &rsaquo; CALENDÁRIO EDITORIAL</div>
     <h1>Plano 90 Dias</h1>
-    <p class="subtitle">3 fases estratégicas: Declaração &rarr; Documentação &rarr; Consolidação.</p>
+    <p class="subtitle">3 fases estratégicas: Clareza, Consistência e Autoridade. Mix de 4 pilares oficiais v6.</p>
   </div>
 
   <div class="content">
@@ -42,96 +50,96 @@
     <div class="grid-4" style="margin-bottom:24px;">
       <div style="display:flex;align-items:center;gap:8px;">
         <div style="width:12px;height:12px;border-radius:50%;background:var(--brand-blue);"></div>
-        <span style="font-size:12px;color:var(--gray-400);">P1 — AIOX (40%)</span>
+        <span style="font-size:12px;color:var(--gray-400);">P1, Tese (25%)</span>
       </div>
       <div style="display:flex;align-items:center;gap:8px;">
         <div style="width:12px;height:12px;border-radius:50%;background:var(--brand-cyan);"></div>
-        <span style="font-size:12px;color:var(--gray-400);">P2 — Bastidores (30%)</span>
+        <span style="font-size:12px;color:var(--gray-400);">P2, Ensino (30%)</span>
       </div>
       <div style="display:flex;align-items:center;gap:8px;">
         <div style="width:12px;height:12px;border-radius:50%;background:var(--brand-amber);"></div>
-        <span style="font-size:12px;color:var(--gray-400);">P3 — Storytelling (20%)</span>
+        <span style="font-size:12px;color:var(--gray-400);">P3, Portfólio (25%)</span>
       </div>
       <div style="display:flex;align-items:center;gap:8px;">
         <div style="width:12px;height:12px;border-radius:50%;background:var(--brand-green);"></div>
-        <span style="font-size:12px;color:var(--gray-400);">P4 — Educação (10%)</span>
+        <span style="font-size:12px;color:var(--gray-400);">P4, Narrativa (20%)</span>
       </div>
     </div>
 
     <!-- PHASE TABS -->
     <div class="tabs">
-      <button class="tab active" onclick="showPhase('phase1')">Fase 1: Declaração</button>
-      <button class="tab" onclick="showPhase('phase2')">Fase 2: Documentação</button>
-      <button class="tab" onclick="showPhase('phase3')">Fase 3: Consolidação</button>
+      <button class="tab active" onclick="showPhase('phase1')">Fase 1: Clareza</button>
+      <button class="tab" onclick="showPhase('phase2')">Fase 2: Consistência</button>
+      <button class="tab" onclick="showPhase('phase3')">Fase 3: Autoridade</button>
     </div>
 
     <!-- FASE 1 -->
     <div id="phase1" class="tab-content active">
       <div class="card" style="margin-bottom:24px;border-color:rgba(37,99,235,0.3);">
-        <div class="card-label">FASE 1 — DIAS 1-30</div>
-        <h3>"Tomei a decisão. Vou aprender AIOX em público."</h3>
-        <p>Meta: 10 posts publicados | 300-500 novos seguidores</p>
+        <div class="card-label">FASE 1, DIAS 1 A 30, RAMPA</div>
+        <h3>"Clareza. Bio atualizada. Frameworks apresentados. Sistemas demonstrados."</h3>
+        <p>Frequência: 5x por semana (3 LinkedIn mais 2 Instagram). Foco em ancorar o novo posicionamento antes de escalar.</p>
       </div>
 
       <!-- SEMANA 1 -->
-      <h3 style="margin-bottom:16px;color:var(--brand-cyan);">Semana 1 — O Anúncio</h3>
+      <h3 style="margin-bottom:16px;color:var(--brand-cyan);">Semana 1, Ancoragem de Tese</h3>
       <table class="cal-table" style="margin-bottom:32px;">
         <thead><tr><th>Dia</th><th>Plataforma</th><th>Formato</th><th>Pilar</th><th>Tema</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td>IG + LI</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-amber);">P3</td><td style="color:var(--white);">Post de Declaração: "Vim do Complexo da Maré. Hoje decido aprender AIOX."</td></tr>
-          <tr><td>2</td><td>IG</td><td><span class="badge badge-red">REEL</span></td><td style="color:var(--brand-blue);">P1</td><td style="color:var(--white);">"Por que decidi estudar AIOX aos 28 anos"</td></tr>
-          <tr><td>3</td><td>IG</td><td><span class="badge badge-cyan">STR</span></td><td style="color:var(--brand-cyan);">P2</td><td style="color:var(--white);">Bastidores: Tela dos primeiros estudos</td></tr>
-          <tr><td>4</td><td>LI</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-green);">P4</td><td style="color:var(--white);">"O que é AIOX e por que todo profissional precisa saber"</td></tr>
-          <tr><td>5</td><td>IG</td><td><span class="badge badge-blue">CAR</span></td><td style="color:var(--brand-blue);">P1</td><td style="color:var(--white);">"5 diferenças entre IA Conversacional e IA Operacional (AIOX)"</td></tr>
+          <tr><td>1</td><td>LinkedIn</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-blue);">P1</td><td style="color:var(--white);">Frase manifesto: "Humanos orquestram. Agents executam. Construí sete sistemas como prova."</td></tr>
+          <tr><td>2</td><td>Instagram</td><td><span class="badge badge-red">REEL</span></td><td style="color:var(--brand-amber);">P3</td><td style="color:var(--white);">Demonstração do Núcleo V4 ao vivo: 7 áreas orquestradas por agents em 60 segundos</td></tr>
+          <tr><td>3</td><td>LinkedIn</td><td><span class="badge badge-blue">CAR</span></td><td style="color:var(--brand-cyan);">P2</td><td style="color:var(--white);">Carrossel PDF: "Os 4 frameworks que sustentam a Fábrica de Sistemas"</td></tr>
+          <tr><td>4</td><td>Instagram</td><td><span class="badge badge-blue">CAR</span></td><td style="color:var(--brand-cyan);">P2</td><td style="color:var(--white);">"3 perguntas que antecedem qualquer projeto de IA na sua operação"</td></tr>
+          <tr><td>5</td><td>LinkedIn</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-green);">P4</td><td style="color:var(--white);">Narrativa: "Do afiliado ao construtor em 6 anos" (arco em 4 atos)</td></tr>
         </tbody>
       </table>
 
       <!-- SEMANA 2 -->
-      <h3 style="margin-bottom:16px;color:var(--brand-cyan);">Semana 2 — Educação Base</h3>
+      <h3 style="margin-bottom:16px;color:var(--brand-cyan);">Semana 2, Primeiro Framework Aplicado</h3>
       <table class="cal-table" style="margin-bottom:32px;">
         <thead><tr><th>Dia</th><th>Plataforma</th><th>Formato</th><th>Pilar</th><th>Tema</th></tr></thead>
         <tbody>
-          <tr><td>8</td><td>IG</td><td><span class="badge badge-red">REEL</span></td><td style="color:var(--brand-blue);">P1</td><td style="color:var(--white);">"O que são agentes autônomos? (explicado simples)"</td></tr>
-          <tr><td>9</td><td>IG</td><td><span class="badge badge-cyan">STR</span></td><td style="color:var(--brand-cyan);">P2</td><td style="color:var(--white);">"Minha rotina de estudo começou — o que estou usando"</td></tr>
-          <tr><td>10</td><td>LI + IG</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-amber);">P3</td><td style="color:var(--white);">Storytelling: "A primeira venda Hotmart em 2020 que mudou tudo"</td></tr>
-          <tr><td>11</td><td>TW</td><td><span class="badge badge-violet">THREAD</span></td><td style="color:var(--brand-blue);">P1</td><td style="color:var(--white);">"AIOX em 7 tweets: o que é, como funciona, por que importa"</td></tr>
-          <tr><td>12</td><td>IG</td><td><span class="badge badge-blue">CAR</span></td><td style="color:var(--brand-blue);">P1</td><td style="color:var(--white);">"IA conversacional vs IA operacional: entenda a diferença"</td></tr>
+          <tr><td>8</td><td>LinkedIn</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-blue);">P1</td><td style="color:var(--white);">Tese: "Sua empresa não tem problema de pessoas. Tem problema de arquitetura."</td></tr>
+          <tr><td>9</td><td>Instagram</td><td><span class="badge badge-red">REEL</span></td><td style="color:var(--brand-amber);">P3</td><td style="color:var(--white);">Building in public OUTBILI: cascata de 3 agents em produção</td></tr>
+          <tr><td>10</td><td>LinkedIn</td><td><span class="badge badge-blue">CAR</span></td><td style="color:var(--brand-cyan);">P2</td><td style="color:var(--white);">Carrossel: "Fábrica de Sistemas em 5 etapas, método que entrega em dias"</td></tr>
+          <tr><td>11</td><td>Instagram</td><td><span class="badge badge-cyan">STR</span></td><td style="color:var(--brand-amber);">P3</td><td style="color:var(--white);">Stories sequência: bastidores do BilinskiZap (agents com memória persistente)</td></tr>
+          <tr><td>12</td><td>LinkedIn</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-green);">P4</td><td style="color:var(--white);">Missão declarada: por que estou construindo para formar orquestradores</td></tr>
         </tbody>
       </table>
 
       <!-- SEMANA 3 -->
-      <h3 style="margin-bottom:16px;color:var(--brand-cyan);">Semana 3 — Primeiros Experimentos</h3>
+      <h3 style="margin-bottom:16px;color:var(--brand-cyan);">Semana 3, Squad-First em Detalhe</h3>
       <table class="cal-table" style="margin-bottom:32px;">
         <thead><tr><th>Dia</th><th>Plataforma</th><th>Formato</th><th>Pilar</th><th>Tema</th></tr></thead>
         <tbody>
-          <tr><td>15</td><td>IG</td><td><span class="badge badge-red">REEL</span></td><td style="color:var(--brand-cyan);">P2</td><td style="color:var(--white);">"Meu primeiro experimento com AIOX (testando ao vivo)"</td></tr>
-          <tr><td>16</td><td>IG</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-blue);">P1</td><td style="color:var(--white);">"Hoje aprendi que [insight específico do experimento]"</td></tr>
-          <tr><td>17</td><td>IG</td><td><span class="badge badge-cyan">STR</span></td><td style="color:var(--brand-cyan);">P2</td><td style="color:var(--white);">Bastidores: Tela do n8n/Make/terminal rodando</td></tr>
-          <tr><td>18</td><td>LI</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-green);">P4</td><td style="color:var(--white);">"Por que RevOps + AIOX é a combinação do futuro"</td></tr>
-          <tr><td>19</td><td>IG</td><td><span class="badge badge-blue">CAR</span></td><td style="color:var(--brand-amber);">P3</td><td style="color:var(--white);">"Do Complexo da Maré para estudante de AIOX: minha jornada"</td></tr>
+          <tr><td>15</td><td>LinkedIn</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-blue);">P1</td><td style="color:var(--white);">Tese: "Um estrategista com squad vale mais que um time sem arquitetura."</td></tr>
+          <tr><td>16</td><td>Instagram</td><td><span class="badge badge-red">REEL</span></td><td style="color:var(--brand-amber);">P3</td><td style="color:var(--white);">Case Keyra: primeiro financeiro operacional do setor de estética (Next.js 16 mais Supabase RLS)</td></tr>
+          <tr><td>17</td><td>LinkedIn</td><td><span class="badge badge-blue">CAR</span></td><td style="color:var(--brand-cyan);">P2</td><td style="color:var(--white);">Carrossel: "Squad-First, como decompor operação em agents especializados"</td></tr>
+          <tr><td>18</td><td>Instagram</td><td><span class="badge badge-blue">CAR</span></td><td style="color:var(--brand-cyan);">P2</td><td style="color:var(--white);">"Agent solo vs Squad orquestrado, a diferença que muda tudo"</td></tr>
+          <tr><td>19</td><td>LinkedIn</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-amber);">P3</td><td style="color:var(--white);">Deep dive Social Media AI: pipeline multimodal Gemini mais Claude em 7 fases</td></tr>
         </tbody>
       </table>
 
       <!-- SEMANA 4 -->
-      <h3 style="margin-bottom:16px;color:var(--brand-cyan);">Semana 4 — Fechamento da Declaração</h3>
+      <h3 style="margin-bottom:16px;color:var(--brand-cyan);">Semana 4, Realocação e Núcleo</h3>
       <table class="cal-table" style="margin-bottom:32px;">
         <thead><tr><th>Dia</th><th>Plataforma</th><th>Formato</th><th>Pilar</th><th>Tema</th></tr></thead>
         <tbody>
-          <tr><td>22</td><td>IG</td><td><span class="badge badge-red">REEL</span></td><td style="color:var(--brand-amber);">P3</td><td style="color:var(--white);">"Por que não tenho medo de aprender em público"</td></tr>
-          <tr><td>23</td><td>IG</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-blue);">P1</td><td style="color:var(--white);">"Semana 1 com AIOX: o que aprendi (honestamente)"</td></tr>
-          <tr><td>24</td><td>IG</td><td><span class="badge badge-cyan">STR</span></td><td style="color:var(--brand-cyan);">P2</td><td style="color:var(--white);">Enquete: "Você sabe o que é AIOX?"</td></tr>
-          <tr><td>25</td><td>LI</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-amber);">P3</td><td style="color:var(--white);">"Aos 28 anos decidi recomeçar. Aqui está o porquê."</td></tr>
-          <tr><td>26</td><td>IG</td><td><span class="badge badge-blue">CAR</span></td><td style="color:var(--brand-blue);">P1</td><td style="color:var(--white);">"Os recursos que estou usando para aprender AIOX"</td></tr>
+          <tr><td>22</td><td>LinkedIn</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-blue);">P1</td><td style="color:var(--white);">Tese: "Sua empresa não precisa contratar. Precisa realocar."</td></tr>
+          <tr><td>23</td><td>Instagram</td><td><span class="badge badge-red">REEL</span></td><td style="color:var(--brand-amber);">P3</td><td style="color:var(--white);">Demo InsightMeet AI: análise comportamental em tempo real durante reunião</td></tr>
+          <tr><td>24</td><td>LinkedIn</td><td><span class="badge badge-blue">CAR</span></td><td style="color:var(--brand-cyan);">P2</td><td style="color:var(--white);">Carrossel: "Realocação Inteligente, auditoria de tempo em 5 passos"</td></tr>
+          <tr><td>25</td><td>Instagram</td><td><span class="badge badge-cyan">STR</span></td><td style="color:var(--brand-green);">P4</td><td style="color:var(--white);">Enquete: "Quantas horas da sua semana são tarefa repetitiva vs decisão estratégica?"</td></tr>
+          <tr><td>26</td><td>LinkedIn</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-green);">P4</td><td style="color:var(--white);">Reflexão: por que a próxima geração de líderes orquestra em vez de gerenciar</td></tr>
         </tbody>
       </table>
 
       <div class="card" style="border-color:rgba(16,185,129,0.3);">
-        <div class="card-label" style="color:var(--brand-green);">META FASE 1</div>
+        <div class="card-label" style="color:var(--brand-green);">META FASE 1 (dias 1 a 30)</div>
         <div class="grid-4" style="margin-top:12px;">
-          <div style="text-align:center;"><div style="font-size:24px;font-weight:900;color:var(--brand-green);">10</div><div style="font-size:11px;color:var(--gray-400);">Posts publicados</div></div>
-          <div style="text-align:center;"><div style="font-size:24px;font-weight:900;color:var(--brand-green);">300-500</div><div style="font-size:11px;color:var(--gray-400);">Novos seguidores</div></div>
-          <div style="text-align:center;"><div style="font-size:24px;font-weight:900;color:var(--brand-green);">100%</div><div style="font-size:11px;color:var(--gray-400);">Comentários respondidos</div></div>
-          <div style="text-align:center;"><div style="font-size:24px;font-weight:900;color:var(--brand-green);">&gt;3%</div><div style="font-size:11px;color:var(--gray-400);">Engajamento médio</div></div>
+          <div style="text-align:center;"><div style="font-size:24px;font-weight:900;color:var(--brand-green);">20</div><div style="font-size:11px;color:var(--gray-400);">Posts publicados</div><div class="stat-context">5 por semana em 4 semanas, mix 3 LinkedIn mais 2 Instagram</div></div>
+          <div style="text-align:center;"><div style="font-size:24px;font-weight:900;color:var(--brand-green);">4/4</div><div style="font-size:11px;color:var(--gray-400);">Frameworks apresentados</div><div class="stat-context">Fábrica, Squad-First, Realocação e Núcleo, um por semana</div></div>
+          <div style="text-align:center;"><div style="font-size:24px;font-weight:900;color:var(--brand-green);">4/7</div><div style="font-size:11px;color:var(--gray-400);">Sistemas demonstrados</div><div class="stat-context">Núcleo V4, OUTBILI, BilinskiZap, Keyra (building in public)</div></div>
+          <div style="text-align:center;"><div style="font-size:24px;font-weight:900;color:var(--brand-green);">100%</div><div style="font-size:11px;color:var(--gray-400);">Comentários respondidos</div><div class="stat-context">Em até 30 min, regra de ouro v6 para aumentar engajamento em 60%</div></div>
         </div>
       </div>
     </div>
@@ -139,48 +147,52 @@
     <!-- FASE 2 -->
     <div id="phase2" class="tab-content">
       <div class="card" style="margin-bottom:24px;border-color:rgba(6,182,212,0.3);">
-        <div class="card-label">FASE 2 — DIAS 31-60</div>
-        <h3>"Estou aprendendo ao vivo. Veja os resultados reais."</h3>
-        <p>Meta: 20 posts totais | 1.000+ seguidores</p>
+        <div class="card-label">FASE 2, DIAS 31 A 60, CRUZEIRO</div>
+        <h3>"Consistência. Cada sistema do portfólio ganha post dedicado. Primeiros sinais de autoridade."</h3>
+        <p>Frequência: 7x por semana (4 LinkedIn mais 3 Instagram). Cada sistema autoral apresentado em post dedicado.</p>
       </div>
 
-      <h3 style="margin-bottom:16px;color:var(--brand-cyan);">Semana 5 — Série "Aprendendo AIOX"</h3>
+      <h3 style="margin-bottom:16px;color:var(--brand-cyan);">Semana 5, OUTBILI e BilinskiZap em Profundidade</h3>
       <table class="cal-table" style="margin-bottom:32px;">
         <thead><tr><th>Dia</th><th>Plataforma</th><th>Formato</th><th>Pilar</th><th>Tema</th></tr></thead>
         <tbody>
-          <tr><td>31</td><td>IG</td><td><span class="badge badge-blue">CAR</span></td><td style="color:var(--brand-blue);">P1</td><td style="color:var(--white);">"5 coisas que aprendi sobre agentes autônomos essa semana"</td></tr>
-          <tr><td>32</td><td>IG</td><td><span class="badge badge-red">REEL</span></td><td style="color:var(--brand-cyan);">P2</td><td style="color:var(--white);">"Mostrando meu primeiro agente funcionando"</td></tr>
-          <tr><td>33</td><td>IG</td><td><span class="badge badge-cyan">STR</span></td><td style="color:var(--brand-cyan);">P2</td><td style="color:var(--white);">Bastidores: processo de configuração de agente</td></tr>
-          <tr><td>34</td><td>LI</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-blue);">P1</td><td style="color:var(--white);">"O que são agentes autônomos (explicado para gestores)"</td></tr>
-          <tr><td>35</td><td>IG</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-blue);">P1</td><td style="color:var(--white);">"3 erros que cometi ao começar com AIOX"</td></tr>
+          <tr><td>31</td><td>LinkedIn</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-blue);">P1</td><td style="color:var(--white);">Tese: "Sua empresa tem seis sistemas e nenhuma verdade. Isso é grupo de WhatsApp com budget."</td></tr>
+          <tr><td>32</td><td>Instagram</td><td><span class="badge badge-red">REEL</span></td><td style="color:var(--brand-amber);">P3</td><td style="color:var(--white);">Building in public OUTBILI: deep dive em 90 segundos (cascata CNPJa mais Assertiva mais BilinskiZap)</td></tr>
+          <tr><td>33</td><td>LinkedIn</td><td><span class="badge badge-blue">CAR</span></td><td style="color:var(--brand-amber);">P3</td><td style="color:var(--white);">Carrossel técnico: "OUTBILI, stack completa e arquitetura serverless"</td></tr>
+          <tr><td>34</td><td>Instagram</td><td><span class="badge badge-blue">CAR</span></td><td style="color:var(--brand-cyan);">P2</td><td style="color:var(--white);">"Como decompor prospecção B2B em 3 agents especializados"</td></tr>
+          <tr><td>35</td><td>LinkedIn</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-amber);">P3</td><td style="color:var(--white);">Case BilinskiZap: automação WhatsApp com agents de memória persistente</td></tr>
+          <tr><td>36</td><td>Instagram</td><td><span class="badge badge-cyan">STR</span></td><td style="color:var(--brand-cyan);">P2</td><td style="color:var(--white);">Stories tutoriais: como configurar agent com contexto do cliente no BilinskiZap</td></tr>
+          <tr><td>37</td><td>LinkedIn</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-green);">P4</td><td style="color:var(--white);">Reflexão: por que construtor consolidado supera guru em transição</td></tr>
         </tbody>
       </table>
 
-      <h3 style="margin-bottom:16px;color:var(--brand-cyan);">Semana 6 — Conexão AIOX + RevOps</h3>
+      <h3 style="margin-bottom:16px;color:var(--brand-cyan);">Semana 6, Keyra e Núcleo V4</h3>
       <table class="cal-table" style="margin-bottom:32px;">
         <thead><tr><th>Dia</th><th>Plataforma</th><th>Formato</th><th>Pilar</th><th>Tema</th></tr></thead>
         <tbody>
-          <tr><td>38</td><td>IG</td><td><span class="badge badge-red">REEL</span></td><td style="color:var(--brand-blue);">P1</td><td style="color:var(--white);">"Como AIOX pode automatizar processos de RevOps"</td></tr>
-          <tr><td>39</td><td>LI</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-blue);">P1</td><td style="color:var(--white);">"O que a V4 Bilinski & Co me ensinou sobre dados + AIOX"</td></tr>
-          <tr><td>40</td><td>IG</td><td><span class="badge badge-cyan">STR</span></td><td style="color:var(--brand-cyan);">P2</td><td style="color:var(--white);">"Testando agente para análise de métricas"</td></tr>
-          <tr><td>41</td><td>IG</td><td><span class="badge badge-blue">CAR</span></td><td style="color:var(--brand-blue);">P1</td><td style="color:var(--white);">"RevOps + AIOX: como conectar os dois (guia visual)"</td></tr>
-          <tr><td>42</td><td>TW</td><td><span class="badge badge-violet">THREAD</span></td><td style="color:var(--brand-green);">P4</td><td style="color:var(--white);">"Por que todo profissional de RevOps precisa aprender AIOX"</td></tr>
+          <tr><td>38</td><td>LinkedIn</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-blue);">P1</td><td style="color:var(--white);">Tese: "A pergunta certa não é 'IA vai substituir pessoas'. É 'qual parte da operação já poderia ser squad?'."</td></tr>
+          <tr><td>39</td><td>Instagram</td><td><span class="badge badge-red">REEL</span></td><td style="color:var(--brand-amber);">P3</td><td style="color:var(--white);">Demo Keyra: conexão agenda, comanda, transação e DRE em tempo real</td></tr>
+          <tr><td>40</td><td>LinkedIn</td><td><span class="badge badge-blue">CAR</span></td><td style="color:var(--brand-amber);">P3</td><td style="color:var(--white);">Carrossel: "Keyra, primeiro financeiro operacional do setor de estética"</td></tr>
+          <tr><td>41</td><td>Instagram</td><td><span class="badge badge-blue">CAR</span></td><td style="color:var(--brand-cyan);">P2</td><td style="color:var(--white);">"Multi-tenant SaaS na prática: Supabase RLS, Stripe e Inngest"</td></tr>
+          <tr><td>42</td><td>LinkedIn</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-amber);">P3</td><td style="color:var(--white);">Case Núcleo de Inteligência V4: 7 áreas orquestradas há 8 meses</td></tr>
+          <tr><td>43</td><td>Instagram</td><td><span class="badge badge-cyan">STR</span></td><td style="color:var(--brand-amber);">P3</td><td style="color:var(--white);">Stories dashboard ao vivo: métricas do Núcleo V4 anonimizadas</td></tr>
+          <tr><td>44</td><td>LinkedIn</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-green);">P4</td><td style="color:var(--white);">Narrativa: reconhecendo parceiros (Staage, Fernando Miranda, Thiago Bilinski)</td></tr>
         </tbody>
       </table>
 
-      <h3 style="margin-bottom:16px;color:var(--brand-cyan);">Semanas 7-8</h3>
+      <h3 style="margin-bottom:16px;color:var(--brand-cyan);">Semanas 7 e 8, Social Media AI, Carousel AI e InsightMeet</h3>
       <div class="card" style="margin-bottom:32px;">
-        <p><strong>Semana 7 — Pequenas Vitórias:</strong> Documentar progresso real, mostrar resultados concretos.</p>
-        <p style="margin-top:8px;"><strong>Semana 8 — Retrospectiva:</strong> Balanço dos 30 dias, engajar quem seguiu a jornada.</p>
+        <p><strong>Semana 7, portfólio completo em evidência:</strong> cada um dos 3 sistemas restantes (Social Media AI, Carousel AI, InsightMeet AI) ganha post dedicado no LinkedIn com stack e Reel no Instagram com demo.</p>
+        <p style="margin-top:8px;"><strong>Semana 8, primeiro viral direcionado:</strong> tese mais forte da série (frase-âncora oficial) como carrossel PDF no LinkedIn. Posts de apoio no Instagram mostrando bastidor da construção dos sistemas.</p>
       </div>
 
       <div class="card" style="border-color:rgba(6,182,212,0.3);">
-        <div class="card-label" style="color:var(--brand-cyan);">META FASE 2</div>
+        <div class="card-label" style="color:var(--brand-cyan);">META FASE 2 (dias 31 a 60)</div>
         <div class="grid-4" style="margin-top:12px;">
-          <div style="text-align:center;"><div style="font-size:24px;font-weight:900;color:var(--brand-cyan);">20</div><div style="font-size:11px;color:var(--gray-400);">Posts totais</div></div>
-          <div style="text-align:center;"><div style="font-size:24px;font-weight:900;color:var(--brand-cyan);">1.000+</div><div style="font-size:11px;color:var(--gray-400);">Seguidores</div></div>
-          <div style="text-align:center;"><div style="font-size:24px;font-weight:900;color:var(--brand-cyan);">&gt;4%</div><div style="font-size:11px;color:var(--gray-400);">Engajamento</div></div>
-          <div style="text-align:center;"><div style="font-size:24px;font-weight:900;color:var(--brand-cyan);">&gt;50</div><div style="font-size:11px;color:var(--gray-400);">Salvamentos/car</div></div>
+          <div style="text-align:center;"><div style="font-size:24px;font-weight:900;color:var(--brand-cyan);">56</div><div style="font-size:11px;color:var(--gray-400);">Posts acumulados</div><div class="stat-context">Somatório: 20 da Fase 1 mais 28 a 30 da Fase 2 (7 por semana)</div></div>
+          <div style="text-align:center;"><div style="font-size:24px;font-weight:900;color:var(--brand-cyan);">7/7</div><div style="font-size:11px;color:var(--gray-400);">Sistemas apresentados</div><div class="stat-context">Cada um dos 7 sistemas do portfólio com post dedicado em LinkedIn e Instagram</div></div>
+          <div style="text-align:center;"><div style="font-size:24px;font-weight:900;color:var(--brand-cyan);">1</div><div style="font-size:11px;color:var(--gray-400);">Viral direcionado</div><div class="stat-context">Tese-âncora alcança engajamento significativo fora da bolha de seguidores</div></div>
+          <div style="text-align:center;"><div style="font-size:24px;font-weight:900;color:var(--brand-cyan);">1</div><div style="font-size:11px;color:var(--gray-400);">Conteúdo de formação</div><div class="stat-context">Primeiro material ensinando orquestração para aquecer lista de espera</div></div>
         </div>
       </div>
     </div>
@@ -188,37 +200,52 @@
     <!-- FASE 3 -->
     <div id="phase3" class="tab-content">
       <div class="card" style="margin-bottom:24px;border-color:rgba(245,158,11,0.3);">
-        <div class="card-label">FASE 3 — DIAS 61-90</div>
-        <h3>"Já tenho resultados reais. Aqui está o que dominar AIOX significa."</h3>
-        <p>Meta: 40+ posts | 2.000+ seguidores | 1a oportunidade de negócio/palestra</p>
+        <div class="card-label">FASE 3, DIAS 61 A 90, AUTORIDADE</div>
+        <h3>"Autoridade consolidada. Primeira oportunidade comercial pela marca. Turma piloto anunciada."</h3>
+        <p>Frequência: 7x por semana. Repetição sistemática dos 4 frameworks + portfólio + ofertas em volume controlado.</p>
       </div>
 
-      <h3 style="margin-bottom:16px;color:var(--brand-cyan);">Semana 9 — Evolução Visível</h3>
+      <h3 style="margin-bottom:16px;color:var(--brand-cyan);">Semana 9, Repetição Estratégica dos Frameworks</h3>
       <table class="cal-table" style="margin-bottom:32px;">
         <thead><tr><th>Dia</th><th>Plataforma</th><th>Formato</th><th>Pilar</th><th>Tema</th></tr></thead>
         <tbody>
-          <tr><td>61</td><td>IG + LI</td><td><span class="badge badge-blue">CAR</span></td><td style="color:var(--brand-amber);">P3</td><td style="color:var(--white);">"Dia 1 vs Dia 60 com AIOX: o que mudou"</td></tr>
-          <tr><td>62</td><td>IG</td><td><span class="badge badge-red">REEL</span></td><td style="color:var(--brand-cyan);">P2</td><td style="color:var(--white);">"Demonstração de algo que era impossível no dia 1"</td></tr>
-          <tr><td>63</td><td>IG</td><td><span class="badge badge-cyan">STR</span></td><td style="color:var(--brand-cyan);">P2</td><td style="color:var(--white);">"Respondendo as 5 perguntas mais feitas sobre AIOX"</td></tr>
-          <tr><td>64</td><td>LI</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-blue);">P1</td><td style="color:var(--white);">"O que 60 dias de AIOX me ensinaram sobre o futuro do trabalho"</td></tr>
-          <tr><td>65</td><td>TW</td><td><span class="badge badge-violet">THREAD</span></td><td style="color:var(--brand-amber);">P3</td><td style="color:var(--white);">"Do Complexo da Maré para aprendiz de AIOX: thread completa"</td></tr>
+          <tr><td>61</td><td>LinkedIn</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-blue);">P1</td><td style="color:var(--white);">Tese: "Trabalho tático vira máquina. Trabalho estratégico vira humano. Essa é a inversão."</td></tr>
+          <tr><td>62</td><td>Instagram</td><td><span class="badge badge-red">REEL</span></td><td style="color:var(--brand-cyan);">P2</td><td style="color:var(--white);">Tutorial: "Fábrica de Sistemas em 5 passos, diagnóstico ao deploy em dias"</td></tr>
+          <tr><td>63</td><td>LinkedIn</td><td><span class="badge badge-blue">CAR</span></td><td style="color:var(--brand-cyan);">P2</td><td style="color:var(--white);">Carrossel v2: "Squad-First, o que mudou desde a primeira apresentação"</td></tr>
+          <tr><td>64</td><td>Instagram</td><td><span class="badge badge-blue">CAR</span></td><td style="color:var(--brand-amber);">P3</td><td style="color:var(--white);">Retrospectiva visual: 60 dias construindo em público, o que foi shipado</td></tr>
+          <tr><td>65</td><td>LinkedIn</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-green);">P4</td><td style="color:var(--white);">Anúncio: turma piloto de formação de orquestradores de agents de IA (lista de espera aberta)</td></tr>
+          <tr><td>66</td><td>Instagram</td><td><span class="badge badge-cyan">STR</span></td><td style="color:var(--brand-green);">P4</td><td style="color:var(--white);">Stories sequência: contexto da turma piloto mais formulário da lista de espera</td></tr>
+          <tr><td>67</td><td>LinkedIn</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-amber);">P3</td><td style="color:var(--white);">Case combinado: como OUTBILI mais BilinskiZap trabalham juntos na cadência comercial</td></tr>
         </tbody>
       </table>
 
-      <h3 style="margin-bottom:16px;color:var(--brand-cyan);">Semanas 10-12</h3>
+      <h3 style="margin-bottom:16px;color:var(--brand-cyan);">Semana 10, Autoridade e Visão de Futuro</h3>
+      <table class="cal-table" style="margin-bottom:32px;">
+        <thead><tr><th>Dia</th><th>Plataforma</th><th>Formato</th><th>Pilar</th><th>Tema</th></tr></thead>
+        <tbody>
+          <tr><td>68</td><td>LinkedIn</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-blue);">P1</td><td style="color:var(--white);">Tese: "A próxima geração de líderes não gerencia pessoas. Orquestra squads."</td></tr>
+          <tr><td>69</td><td>Instagram</td><td><span class="badge badge-red">REEL</span></td><td style="color:var(--brand-amber);">P3</td><td style="color:var(--white);">Demo Carousel AI: de texto a carrossel exportado em 30 segundos</td></tr>
+          <tr><td>70</td><td>LinkedIn</td><td><span class="badge badge-blue">CAR</span></td><td style="color:var(--brand-cyan);">P2</td><td style="color:var(--white);">Carrossel v2: "Realocação Inteligente aplicada, 3 exemplos de empresas travadas"</td></tr>
+          <tr><td>71</td><td>Instagram</td><td><span class="badge badge-blue">CAR</span></td><td style="color:var(--brand-cyan);">P2</td><td style="color:var(--white);">"5 erros comuns ao tentar orquestrar agents pela primeira vez"</td></tr>
+          <tr><td>72</td><td>LinkedIn</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-green);">P4</td><td style="color:var(--white);">Visão 2026 a 2028: quem construir agora domina a próxima janela</td></tr>
+          <tr><td>73</td><td>Instagram</td><td><span class="badge badge-cyan">STR</span></td><td style="color:var(--brand-green);">P4</td><td style="color:var(--white);">Stories Q&amp;A: respondendo perguntas da lista de espera da turma piloto</td></tr>
+          <tr><td>74</td><td>LinkedIn</td><td><span class="badge badge-amber">POST</span></td><td style="color:var(--brand-amber);">P3</td><td style="color:var(--white);">InsightMeet AI em produção: o que micro-expressões revelam em reunião comercial</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin-bottom:16px;color:var(--brand-cyan);">Semanas 11 e 12, Consolidação e Próximo Capítulo</h3>
       <div class="card" style="margin-bottom:32px;">
-        <p><strong>Semana 10 — Autoridade:</strong> Consolidar posição como referência em transição pública para AIOX.</p>
-        <p style="margin-top:8px;"><strong>Semana 11 — Visão de Futuro:</strong> Posicionamento para os próximos 12 meses. Atrair oportunidades.</p>
-        <p style="margin-top:8px;"><strong>Semana 12 — Grand Finale:</strong> Retrospectiva completa. Declaração de próximo capítulo. CTA de comunidade.</p>
+        <p><strong>Semana 11, oferta direta controlada:</strong> apresentar os 3 níveis de oferta (consultoria diagnóstico R$ 800 a R$ 1.500, mentoria de orquestrador R$ 3.000 a R$ 6.000, projeto de implementação Núcleo R$ 15.000 a R$ 50.000). 1 post de oferta direta para 4 de valor puro.</p>
+        <p style="margin-top:8px;"><strong>Semana 12, grand finale:</strong> retrospectiva dos 90 dias com números (posts, engajamento, sistemas mostrados, primeiras oportunidades). Declaração do próximo capítulo: sistema #8 em projeto mais expansão do Núcleo V4 para novos módulos. CTA de comunidade (lista, grupo ou canal).</p>
       </div>
 
       <div class="card" style="border-color:rgba(245,158,11,0.3);">
-        <div class="card-label" style="color:var(--brand-amber);">META FASE 3</div>
+        <div class="card-label" style="color:var(--brand-amber);">META FASE 3 (dias 61 a 90)</div>
         <div class="grid-4" style="margin-top:12px;">
-          <div style="text-align:center;"><div style="font-size:24px;font-weight:900;color:var(--brand-amber);">40+</div><div style="font-size:11px;color:var(--gray-400);">Posts totais</div></div>
-          <div style="text-align:center;"><div style="font-size:24px;font-weight:900;color:var(--brand-amber);">2.000+</div><div style="font-size:11px;color:var(--gray-400);">Seguidores</div></div>
-          <div style="text-align:center;"><div style="font-size:24px;font-weight:900;color:var(--brand-amber);">&gt;5%</div><div style="font-size:11px;color:var(--gray-400);">Engajamento</div></div>
-          <div style="text-align:center;"><div style="font-size:24px;font-weight:900;color:var(--brand-amber);">&gt;80</div><div style="font-size:11px;color:var(--gray-400);">Salvamentos/car</div></div>
+          <div style="text-align:center;"><div style="font-size:24px;font-weight:900;color:var(--brand-amber);">76+</div><div style="font-size:11px;color:var(--gray-400);">Posts acumulados</div><div class="stat-context">Somatório dos 90 dias: 20 na Fase 1, 28 a 30 na Fase 2 e 28 a 30 na Fase 3</div></div>
+          <div style="text-align:center;"><div style="font-size:24px;font-weight:900;color:var(--brand-amber);">1</div><div style="font-size:11px;color:var(--gray-400);">Oportunidade comercial</div><div class="stat-context">Primeira sessão de diagnóstico ou projeto gerado pela marca pessoal</div></div>
+          <div style="text-align:center;"><div style="font-size:24px;font-weight:900;color:var(--brand-amber);">1</div><div style="font-size:11px;color:var(--gray-400);">Turma piloto anunciada</div><div class="stat-context">Formação de orquestradores com lista de espera ativa ou primeira cohort aberta</div></div>
+          <div style="text-align:center;"><div style="font-size:24px;font-weight:900;color:var(--brand-amber);">100%</div><div style="font-size:11px;color:var(--gray-400);">Território claro</div><div class="stat-context">Arquiteto de Operações mais Fábrica de Sistemas como marca reconhecida no nicho</div></div>
         </div>
       </div>
     </div>
